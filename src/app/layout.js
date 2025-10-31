@@ -14,7 +14,6 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Simple Responsive Page",
   description: "A simple responsive page using Tailwind CSS",
-  viewport: "width=device-width, initial-scale=1.0",
   charset: "UTF-8",
 };
 
