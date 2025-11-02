@@ -1,7 +1,13 @@
 // src/app/page.js
-import Image from "next/image";
+
+"use client";
+import { useState, useEffect } from "react";
+import { useDefitPrice } from "../components/useDefitPrice";
 
 export default function Home() {
+  
+  const { price: defitPrice, error } = useDefitPrice();
+
   return (
     <div className="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
 
@@ -19,6 +25,20 @@ export default function Home() {
 
       {/* Main content */}
       <main className="flex-1 max-w-screen-xl mx-auto p-4 sm:p-6 lg:p-8 w-full">
+        
+         {error ? (
+  <p className="price-error" style={{ marginBottom: 0 }}>{error}</p>
+) : defitPrice === null ? (
+  <p className="price-loading" style={{ marginBottom: 0 }}>Chargement...</p>
+) : (
+  <p className="defit-price" style={{ marginTop: "20px", marginBottom: 0 }}>
+    Prix actuel du <strong>DEFIT</strong> : 
+    <span>
+      {typeof defitPrice === 'number' ? ` ${defitPrice.toFixed(4)} $` : "?"}
+    </span>
+  </p>
+)}
+        
         {/* <section className="grid grid-cols-2 gap-4">
           <div className="bg-white p-4 rounded shadow">
             Colonne gauche (1/2)
