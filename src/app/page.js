@@ -1,6 +1,7 @@
 // src/app/page.js
 
 "use client";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useDefitPrice } from "../components/useDefitPrice";
 
@@ -12,7 +13,7 @@ export default function Home() {
     <div className="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
 
       {/* Header */}
-      <header className="bg-indigo-600 text-white p-4">
+      <header className="bg-[#4608ad] text-white p-4">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center">
           <h1 className="text-xl font-bold">My Website</h1>
           <nav className="space-x-4">
@@ -24,9 +25,9 @@ export default function Home() {
       </header>
 
       {/* Main content */}
-      <main className="flex-1 max-w-screen-xl mx-auto p-4 sm:p-6 lg:p-8 w-full">
+      <main className="bg-[#4608ad] flex-1 max-w-screen-xl mx-auto p-4 sm:p-6 lg:p-8 w-full">
         
-        {error ? (
+        {/* {error ? (
             <p className="price-error" style={{ marginBottom: 0 }}>{error}</p>
           ) : defitPrice === null ? (
             <p className="price-loading" style={{ marginBottom: 0 }}>Chargement...</p>
@@ -37,17 +38,24 @@ export default function Home() {
                 {typeof defitPrice === 'number' ? ` ${defitPrice.toFixed(4)} $` : "?"}
               </span>
             </p>
-        )}
+        )} */}
 
         <section className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           
           {/* Colonne 1 */}
-          <div className="bg-white p-4 rounded shadow">
-            Colonne 1
+          <div className="bg-[#5f3dc4] p-4 rounded-lg shadow-xl flex justify-center">
+            <Image
+              src="/images/ichiro.png"
+              alt="Ichiro"
+              width={100}
+              height={100}
+              className="w-auto h-auto rounded-lg"
+              priority 
+            />
           </div>
 
           {/* Colonne 2 */}
-          <div className="bg-white p-4 rounded shadow">
+          <div className="bg-[#5f3dc4] text-white p-4 rounded-lg shadow-xl flex justify-center">
             <table>
                         <tbody>
                         <tr>
@@ -63,7 +71,7 @@ export default function Home() {
                           <td className="text-xs">3500082</td>
                         </tr>
                         <tr>
-                          <td className="text-xs">BOOST</td>
+                          <td className="text-xs">BOOST&nbsp;&nbsp;</td>
                           <td className="text-xs">30000</td>
                         </tr>
                         </tbody>
@@ -71,24 +79,25 @@ export default function Home() {
           </div>
 
           {/* Colonne 3 (cachée sur mobile) */}
-          <div className="bg-white p-4 rounded shadow hidden sm:block">
+          <div className="bg-white p-4 rounded shadow hidden sm:block invisible">
             Colonne 3
           </div>
 
           {/* Colonne 4 (cachée sur mobile) */}
-          <div className="bg-white p-4 rounded shadow hidden sm:block">
+          <div className="bg-white p-4 rounded shadow hidden sm:block invisible">
             Colonne 4
           </div>
         </section>
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white p-4 mt-8">
-        <div className="max-w-screen-xl mx-auto text-center">
-          &copy; 2025 My Website. All rights reserved.
-        </div>
-      </footer>
       
+      <footer className="bg-gray-800 text-white p-4 mt-auto">
+  <div className="max-w-screen-xl mx-auto text-center">
+    &copy; 2025 My Website. All rights reserved.
+  </div>
+</footer>
+
     </div>
   );
 }
