@@ -1,103 +1,60 @@
-// src/app/page.js
-
 "use client";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { useDefitPrice } from "../components/useDefitPrice";
 
 export default function Home() {
-  
-  const { price: defitPrice, error } = useDefitPrice();
-
   return (
-    <div className="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
+    <div className="min-h-screen bg-[#5f3dc4] flex flex-col items-center justify-center text-white px-4 py-8">
+      
+      {/* Logo / Image avec container et ombre */}
+      <div className="w-[100px] h-[100px] rounded-xl shadow-lg overflow-hidden flex items-center justify-center mb-6 bg-[#4608ad]">
+        <Image
+          src="/images/ichiro.png"
+          alt="Ichiro"
+          width={100}
+          height={100}
+          className="object-contain"
+          priority
+        />
+      </div>
 
-      {/* Header */}
-      <header className="bg-[#4608ad] text-white p-4">
-        <div className="max-w-screen-xl mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-bold">My Website</h1>
-          <nav className="space-x-4">
-            <a href="#" className="hover:underline">Home</a>
-            <a href="#" className="hover:underline">About</a>
-            <a href="#" className="hover:underline">Contact</a>
-          </nav>
-        </div>
-      </header>
+      {/* Titre */}
+      <h1 className="text-2xl font-bold mb-2 text-center tracking-wide">
+        Ichiro Dashboard
+      </h1>
 
-      {/* Main content */}
-      <main className="bg-[#4608ad] flex-1 max-w-screen-xl mx-auto p-4 sm:p-6 lg:p-8 w-full">
-        
-        {/* {error ? (
-            <p className="price-error" style={{ marginBottom: 0 }}>{error}</p>
-          ) : defitPrice === null ? (
-            <p className="price-loading" style={{ marginBottom: 0 }}>Chargement...</p>
-          ) : (
-            <p className="defit-price" style={{ marginTop: "20px", marginBottom: 0 }}>
-              Prix actuel du <strong>DEFIT</strong> : 
-              <span>
-                {typeof defitPrice === 'number' ? ` ${defitPrice.toFixed(4)} $` : "?"}
-              </span>
-            </p>
-        )} */}
+      {/* Sous-titre */}
+      <p className="text-sm text-gray-200 text-center mb-6">
+        Suivi des performances & actifs DEFIT
+      </p>
 
-        <section className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          
-          {/* Colonne 1 */}
-          <div className="bg-[#5f3dc4] p-4 rounded-lg shadow-xl flex justify-center">
-            <Image
-              src="/images/ichiro.png"
-              alt="Ichiro"
-              width={100}
-              height={100}
-              className="w-auto h-auto rounded-lg"
-              priority 
-            />
-          </div>
-
-          {/* Colonne 2 */}
-          <div className="bg-[#5f3dc4] text-white p-4 rounded-lg shadow-xl flex justify-center">
-            <table>
-                        <tbody>
-                        <tr>
-                          <td className="text-xs">DEFIT</td>
-                          <td className="text-xs">100 000</td>
-                        </tr>
-                        <tr>
-                          <td className="text-xs">BTC</td>
-                          <td className="text-xs">0.1234568</td>
-                        </tr>
-                        <tr>
-                          <td className="text-xs">EURC</td>
-                          <td className="text-xs">3500082</td>
-                        </tr>
-                        <tr>
-                          <td className="text-xs">BOOST&nbsp;&nbsp;</td>
-                          <td className="text-xs">30000</td>
-                        </tr>
-                        </tbody>
-              </table>
-          </div>
-
-          {/* Colonne 3 (cachée sur mobile) */}
-          <div className="bg-white p-4 rounded shadow hidden sm:block invisible">
-            Colonne 3
-          </div>
-
-          {/* Colonne 4 (cachée sur mobile) */}
-          <div className="bg-white p-4 rounded shadow hidden sm:block invisible">
-            Colonne 4
-          </div>
-        </section>
-      </main>
+      {/* Tableau stylisé */}
+      <div className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg w-full max-w-xs p-4">
+        <table className="w-full text-sm">
+          <tbody>
+            <tr className="border-b border-white/20">
+              <td className="py-2">DEFIT</td>
+              <td className="py-2 text-right font-semibold">100 000</td>
+            </tr>
+            <tr className="border-b border-white/20">
+              <td className="py-2">BTC</td>
+              <td className="py-2 text-right font-semibold">0.1234568</td>
+            </tr>
+            <tr className="border-b border-white/20">
+              <td className="py-2">EURC</td>
+              <td className="py-2 text-right font-semibold">3 500 082</td>
+            </tr>
+            <tr>
+              <td className="py-2">BOOST</td>
+              <td className="py-2 text-right font-semibold">30 000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       {/* Footer */}
-      
-      <footer className="bg-gray-800 text-white p-4 mt-auto">
-  <div className="max-w-screen-xl mx-auto text-center">
-    &copy; 2025 My Website. All rights reserved.
-  </div>
-</footer>
-
+      <footer className="mt-8 text-xs text-gray-300 text-center">
+        &copy; 2025 Ichiro Labs — Tous droits réservés
+      </footer>
     </div>
   );
 }
