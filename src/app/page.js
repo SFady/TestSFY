@@ -6,16 +6,30 @@ export default function Home() {
     <div className="min-h-screen bg-[#5f3dc4] flex flex-col items-center justify-center text-white px-6 py-10">
       
       {/* Logo / Image avec container et ombre */}
-      <div className="w-[120px] h-[120px] rounded-2xl shadow-lg overflow-hidden flex items-center justify-center mb-8 bg-[#4608ad]">
-        <Image
-          src="/images/ichiro.png"
-          alt="Ichiro"
-          width={120}
-          height={120}
-          className="object-contain"
-          priority
-        />
-      </div>
+{/* <div className="relative w-[120px] h-[120px] mb-8 rounded-2xl shadow-inner overflow-hidden bg-[#4608ad] flex items-center justify-center">
+  <Image
+    src="/images/ichiro.png"
+    alt="Ichiro"
+    fill
+    className="object-cover"
+    priority
+    sizes="(max-width: 768px) 120px, 120px"
+  />
+</div> */}
+<div className="mb-8 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.3)] p-[2px] bg-transparent">
+  <div className="relative w-[120px] h-[120px] rounded-2xl overflow-hidden bg-[#4608ad]">
+    <Image
+      src="/images/ichiro.png"
+      alt="Ichiro"
+      fill
+      className="object-cover"
+      priority
+      sizes="(max-width: 768px) 120px, 120px"
+    />
+  </div>
+</div>
+
+
 
       {/* Titre */}
       <h1 className="text-3xl font-bold mb-3 text-center tracking-wide">
