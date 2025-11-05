@@ -3,18 +3,19 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#5f3dc4] text-white">
+    <div className="flex flex-col bg-[#5f3dc4] text-white min-h-screen">
 
       {/* Header */}
-      <header className="bg-[#4608ad] w-full p-4 shadow-md">
+      <header className="bg-[#4608ad] w-full p-4 shadow-md z-10">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center">
           <h1 className="text-xl font-bold">The Crypto Athletes Club</h1>
         </div>
       </header>
 
-      {/* Contenu principal */}
-      <main className="flex flex-col items-center px-6 py-6">
-        {/* Logo / Image avec ombre */}
+      {/* Contenu scrollable */}
+      <main className="flex-1 overflow-auto flex flex-col items-center px-6 py-6">
+        
+        {/* Logo */}
         <div className="mb-6 rounded-2xl shadow-2xl p-[2px] bg-transparent">
           <div className="relative w-[120px] h-[120px] rounded-2xl overflow-hidden bg-[#4608ad]">
             <Image
@@ -29,17 +30,15 @@ export default function Home() {
         </div>
 
         {/* Titre */}
-        <h1 className="text-3xl font-bold mb-2 text-center tracking-wide">
-          Dashboard
-        </h1>
+        <h1 className="text-3xl font-bold mb-2 text-center tracking-wide">Dashboard</h1>
 
         {/* Sous-titre */}
         <p className="text-base text-gray-200 text-center mb-6">
           Suivi des performances & actifs DEFIT
         </p>
 
-        {/* Tableau stylisé */}
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg w-full max-w-sm p-6">
+        {/* Tableau */}
+        <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg w-full max-w-sm p-6 mb-24">
           <table className="w-full text-base">
             <tbody>
               <tr className="border-b border-white/20">
@@ -63,8 +62,8 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="mt-auto text-sm text-gray-300 text-center py-4">
+      {/* Footer fixe */}
+      <footer className="fixed bottom-0 left-0 w-full bg-[#4608ad] text-sm text-gray-300 text-center py-3 z-20">
         &copy; 2025 Ichiro Labs — Tous droits réservés
       </footer>
 
