@@ -3,18 +3,20 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col h-screen bg-[#5f3dc4] text-white overflow-hidden">
+    <div className="flex flex-col h-screen bg-[#5f3dc4] text-white">
 
-      {/* Header fixe en haut */}
-      <header className="fixed top-0 left-0 w-full bg-[#4608ad] p-4 shadow-md z-30">
-        <div className="max-w-screen-xl mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-bold">The Crypto Athletes Club</h1>
-        </div>
-      </header>
+      {/* Wrapper scrollable */}
+      <div className="flex flex-col flex-1 overflow-auto -webkit-overflow-scrolling-touch">
 
-      {/* Contenu scrollable uniquement */}
-      <div className="flex-1 overflow-auto -webkit-overflow-scrolling-touch pt-24 pb-20">
-        <main className="flex flex-col items-center px-6">
+        {/* Header intégré */}
+        <header className="bg-[#4608ad] p-4 shadow-md">
+          <div className="max-w-screen-xl mx-auto flex justify-between items-center">
+            <h1 className="text-xl font-bold">The Crypto Athletes Club</h1>
+          </div>
+        </header>
+
+        {/* Contenu principal */}
+        <main className="flex flex-col items-center px-6 py-6 flex-1">
 
           {/* Logo avec ombre */}
           <div className="mb-6 rounded-2xl shadow-2xl p-[2px] bg-transparent">
@@ -30,18 +32,14 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Titre */}
-          <h1 className="text-3xl font-bold mb-2 text-center tracking-wide">
-            Dashboard
-          </h1>
-
-          {/* Sous-titre */}
+          {/* Titre et sous-titre */}
+          <h1 className="text-3xl font-bold mb-2 text-center tracking-wide">Dashboard</h1>
           <p className="text-base text-gray-200 text-center mb-6">
-            Suivi des performances & actifs DEFIT2
+            Suivi des performances & actifs DEFIT3
           </p>
 
-          {/* Tableau stylisé */}
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg w-full max-w-sm p-6 mb-24">
+          {/* Tableau */}
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg w-full max-w-sm p-6 mb-6">
             <table className="w-full text-base">
               <tbody>
                 <tr className="border-b border-white/20">
@@ -63,14 +61,15 @@ export default function Home() {
               </tbody>
             </table>
           </div>
+
         </main>
+
+        {/* Footer collé en bas */}
+        <footer className="bg-[#4608ad] text-sm text-gray-300 text-center py-3 mt-auto">
+          &copy; 2025 Ichiro Labs — Tous droits réservés
+        </footer>
+
       </div>
-
-      {/* Footer fixe en bas */}
-      <footer className="fixed bottom-0 left-0 w-full bg-[#4608ad] text-sm text-gray-300 text-center py-3 z-30">
-        &copy; 2025 Ichiro Labs — Tous droits réservés
-      </footer>
-
     </div>
   );
 }
