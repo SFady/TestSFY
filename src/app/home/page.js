@@ -3,25 +3,20 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#5f3dc4] flex flex-col items-center text-white">
-      
+    <div className="min-h-screen bg-[#5f3dc4] flex flex-col text-white">
+
       {/* Header */}
       <header className="bg-[#4608ad] text-white w-full p-4 shadow-md">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center">
           <h1 className="text-xl font-bold">The Crypto Athletes Club</h1>
-          {/* <nav className="space-x-4">
-            <a href="#" className="hover:underline">Accueil</a>
-            <a href="#" className="hover:underline">Dashboard</a>
-            <a href="#" className="hover:underline">Contact</a>
-          </nav> */}
         </div>
       </header>
 
       {/* Contenu principal */}
-      <main className="flex flex-col items-center justify-center flex-grow px-6 py-10">
-        
+      <main className="flex flex-col items-center px-6 py-6 flex-1 justify-center">
+
         {/* Logo / Image avec ombre visible */}
-        <div className="mb-8 rounded-2xl shadow-2xl p-[2px] bg-transparent">
+        <div className="mb-6 rounded-2xl shadow-2xl p-[2px] bg-transparent">
           <div className="relative w-[120px] h-[120px] rounded-2xl overflow-hidden bg-[#4608ad]">
             <Image
               src="/images/ichiro.png"
@@ -35,12 +30,12 @@ export default function Home() {
         </div>
 
         {/* Titre */}
-        <h1 className="text-3xl font-bold mb-3 text-center tracking-wide">
+        <h1 className="text-3xl font-bold mb-2 text-center tracking-wide">
           Dashboard
         </h1>
 
         {/* Sous-titre */}
-        <p className="text-base text-gray-200 text-center mb-8">
+        <p className="text-base text-gray-200 text-center mb-6">
           Suivi des performances & actifs DEFIT
         </p>
 
@@ -70,10 +65,10 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="mt-8 text-sm text-gray-300 text-center py-4">
+      <footer className="text-sm text-gray-300 text-center py-4">
         &copy; 2025 Ichiro Labs — Tous droits réservés
       </footer>
-      
+
     </div>
   );
 }
