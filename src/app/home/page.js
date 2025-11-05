@@ -3,17 +3,17 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col bg-[#5f3dc4] text-white min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#5f3dc4] text-white">
 
-      {/* Header */}
-      <header className="bg-[#4608ad] w-full p-4 shadow-md z-10">
+      {/* Header fixe en haut */}
+      <header className="fixed top-0 left-0 w-full bg-[#4608ad] p-4 shadow-md z-30">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center">
           <h1 className="text-xl font-bold">The Crypto Athletes Club</h1>
         </div>
       </header>
 
-      {/* Contenu scrollable */}
-      <main className="flex-1 overflow-auto flex flex-col items-center px-6 py-6">
+      {/* Contenu scrollable, avec padding pour header et footer */}
+      <main className="flex-1 overflow-auto flex flex-col items-center px-6 pt-24 pb-20">
         
         {/* Logo */}
         <div className="mb-6 rounded-2xl shadow-2xl p-[2px] bg-transparent">
@@ -62,8 +62,8 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Footer fixe */}
-      <footer className="fixed bottom-0 left-0 w-full bg-[#4608ad] text-sm text-gray-300 text-center py-3 z-20">
+      {/* Footer fixe en bas */}
+      <footer className="fixed bottom-0 left-0 w-full bg-[#4608ad] text-sm text-gray-300 text-center py-3 z-30">
         &copy; 2025 Ichiro Labs — Tous droits réservés
       </footer>
 
