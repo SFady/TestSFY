@@ -3,10 +3,10 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="min-h-[100dvh] flex flex-col justify-between bg-[#5f3dc4] text-white">
+    <div className="flex flex-col min-h-screen bg-[#5f3dc4] text-white">
 
       {/* Header */}
-      <header className="bg-[#4608ad] text-white w-full p-4 shadow-md">
+      <header className="bg-[#4608ad] w-full p-4 shadow-md">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center">
           <h1 className="text-xl font-bold">The Crypto Athletes Club</h1>
         </div>
@@ -14,7 +14,6 @@ export default function Home() {
 
       {/* Contenu principal */}
       <main className="flex flex-col items-center px-6 py-6">
-
         {/* Logo / Image avec ombre */}
         <div className="mb-6 rounded-2xl shadow-2xl p-[2px] bg-transparent">
           <div className="relative w-[120px] h-[120px] rounded-2xl overflow-hidden bg-[#4608ad]">
@@ -62,11 +61,10 @@ export default function Home() {
             </tbody>
           </table>
         </div>
-
       </main>
 
       {/* Footer */}
-      <footer className="text-sm text-gray-300 text-center py-4">
+      <footer className="mt-auto text-sm text-gray-300 text-center py-4">
         &copy; 2025 Ichiro Labs — Tous droits réservés
       </footer>
 
