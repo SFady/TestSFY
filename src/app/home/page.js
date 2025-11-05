@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#5f3dc4] flex flex-col text-white">
+    <div className="min-h-[100dvh] flex flex-col justify-between bg-[#5f3dc4] text-white">
 
       {/* Header */}
       <header className="bg-[#4608ad] text-white w-full p-4 shadow-md">
@@ -13,9 +13,9 @@ export default function Home() {
       </header>
 
       {/* Contenu principal */}
-      <main className="flex flex-col items-center px-6 py-6 flex-1 justify-center">
+      <main className="flex flex-col items-center px-6 py-6">
 
-        {/* Logo / Image avec ombre visible */}
+        {/* Logo / Image avec ombre */}
         <div className="mb-6 rounded-2xl shadow-2xl p-[2px] bg-transparent">
           <div className="relative w-[120px] h-[120px] rounded-2xl overflow-hidden bg-[#4608ad]">
             <Image
@@ -62,6 +62,7 @@ export default function Home() {
             </tbody>
           </table>
         </div>
+
       </main>
 
       {/* Footer */}
