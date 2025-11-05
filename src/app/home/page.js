@@ -5,17 +5,17 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[#5f3dc4] text-white">
 
-      {/* Header fixe en haut */}
-      <header className="fixed top-0 left-0 w-full bg-[#4608ad] p-4 shadow-md z-30">
+      {/* Header fixe en haut, sans rebond */}
+      <header className="fixed top-0 left-0 w-full bg-[#4608ad] p-4 shadow-md z-30 overscroll-none">
         <div className="max-w-screen-xl mx-auto flex justify-between items-center">
           <h1 className="text-xl font-bold">The Crypto Athletes Club</h1>
         </div>
       </header>
 
-      {/* Contenu scrollable, avec padding pour header et footer */}
-      <main className="flex-1 overflow-auto flex flex-col items-center px-6 pt-24 pb-20">
-        
-        {/* Logo */}
+      {/* Contenu scrollable avec rebond */}
+      <main className="flex-1 overflow-auto flex flex-col items-center px-6 pt-24 pb-20 overscroll-auto">
+
+        {/* Logo avec ombre */}
         <div className="mb-6 rounded-2xl shadow-2xl p-[2px] bg-transparent">
           <div className="relative w-[120px] h-[120px] rounded-2xl overflow-hidden bg-[#4608ad]">
             <Image
@@ -37,7 +37,7 @@ export default function Home() {
           Suivi des performances & actifs DEFIT
         </p>
 
-        {/* Tableau */}
+        {/* Tableau stylisé */}
         <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg w-full max-w-sm p-6 mb-24">
           <table className="w-full text-base">
             <tbody>
@@ -60,10 +60,11 @@ export default function Home() {
             </tbody>
           </table>
         </div>
+
       </main>
 
-      {/* Footer fixe en bas */}
-      <footer className="fixed bottom-0 left-0 w-full bg-[#4608ad] text-sm text-gray-300 text-center py-3 z-30">
+      {/* Footer fixe en bas, sans rebond */}
+      <footer className="fixed bottom-0 left-0 w-full bg-[#4608ad] text-sm text-gray-300 text-center py-3 z-30 overscroll-none">
         &copy; 2025 Ichiro Labs — Tous droits réservés
       </footer>
 
