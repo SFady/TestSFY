@@ -60,9 +60,20 @@ export default function Home() {
               </td>
             </tr>
             <tr className="border-b border-white/20">
-              <td className="py-3">BTC</td>
-              <td className="py-3 text-right font-semibold">0.1234568</td>
-            </tr>
+  <td className="py-3 flex items-center gap-2">
+    BTC
+    {/* Question mark with tooltip */}
+    <span className="relative group cursor-pointer flex-shrink-0">
+      <span className="w-5 h-5 flex items-center justify-center rounded-full bg-yellow-400 text-black text-xs font-bold">
+        ?
+      </span>
+      <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-44 rounded-md bg-gray-800 text-white text-xs text-center px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
+        Bitcoin holdings for this athlete
+      </span>
+    </span>
+  </td>
+  <td className="py-3 text-right font-semibold">0.1234568</td>
+</tr>
             <tr className="border-b border-white/20">
               <td className="py-3">BOOST (€)</td>
               <td className="py-3 text-right font-semibold">30 0000</td>
