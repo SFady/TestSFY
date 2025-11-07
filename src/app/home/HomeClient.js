@@ -13,7 +13,7 @@ export default function Home() {
     // This runs only in the browser
     const queryId = searchParams.get("id");
     const storedId = localStorage.getItem("selectedAthlete");
-    const activeId = queryId || storedId;
+    const activeId = queryId || storedId || 1;
 
     if (activeId) {
       setId(activeId);
