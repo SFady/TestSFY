@@ -1,6 +1,9 @@
+"use client";
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { useState } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,40 +15,60 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "The Crypto Athletes Club",
-  description: "Dashboard de suivi des performances & actifs DEFIT2",
-  charset: "UTF-8",
-};
-
 export default function RootLayout({ children }) {
+  const [selected, setSelected] = useState("Option 1");
+
   return (
     <html lang="fr">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        />
+        <title>The Crypto Athletes Club</title>
+        <meta
+          name="description"
+          content="Dashboard de suivi des performances & actifs DEFIT2"
+        />
+        <meta charSet="UTF-8" />
       </head>
 
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* Conteneur global avec couleurs et structure */}
         <div className="flex flex-col h-screen bg-[#5f3dc4] text-white overflow-hidden">
-
-          {/* Header fixe */}
+          {/* HEADER FIXE */}
           <header className="fixed top-0 left-0 w-full bg-[#4608ad] p-4 shadow-md z-30">
             <div className="max-w-screen-xl mx-auto flex justify-between items-center">
               <h1 className="text-xl font-bold">The Crypto Athletes Club</h1>
+
+              {/* DROPDOWN SIMPLE */}
+              <select
+                value={selected}
+                onChange={(e) => setSelected(e.target.value)}
+                className="bg-white/10 text-white px-3 py-2 rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/30"
+              >
+                <option value="Option 1" className="text-black">
+                  Option 1
+                </option>
+                <option value="Option 2" className="text-black">
+                  Option 2
+                </option>
+                <option value="Option 3" className="text-black">
+                  Option 3
+                </option>
+              </select>
             </div>
           </header>
 
-          {/* Contenu scrollable */}
+          {/* CONTENU SCROLLABLE */}
           <div className="flex-1 overflow-auto -webkit-overflow-scrolling-touch pt-24 pb-20">
             {children}
           </div>
 
-          {/* Footer fixe */}
+          {/* FOOTER FIXE */}
           <footer className="fixed bottom-0 left-0 w-full bg-[#4608ad] text-sm text-gray-300 text-center py-3 z-30">
-             <p>
+            <p>
               &copy; 2025 Ichiro Labs — Tous droits réservés ·{" "}
               <Link
                 href="/about"

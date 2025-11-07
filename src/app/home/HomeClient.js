@@ -13,7 +13,7 @@ export default function Home() {
     if (id) {
       fetch(`/api/get-user-defit-amount?id=${id}`)
         .then((res) => res.json())
-        .then((data) => setDefitAmount(data.result ?? 0))
+        .then((data) => setDefitAmount(Number(data.result) ?? 0))
         .catch(console.error);
     }
   }, [id]);
@@ -34,11 +34,11 @@ export default function Home() {
       </div>
 
       <h1 className="text-3xl font-bold mb-2 text-center tracking-wide">
-        Dashboard {id ?? "—"} {defitAmount ?? "..."}
+        Jinbe {id ?? "—"} 
       </h1>
 
       <p className="text-base text-gray-200 text-center mb-6">
-        Suivi des performances & actifs DEFIT2
+        Suivi des performances & actifs
       </p>
 
       <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg w-full max-w-sm p-6 mb-24">
@@ -46,19 +46,23 @@ export default function Home() {
           <tbody>
             <tr className="border-b border-white/20">
               <td className="py-3">DEFIT</td>
-              <td className="py-3 text-right font-semibold">100 000</td>
+              <td className="py-3 text-right font-semibold">{defitAmount ?? "..."}</td>
             </tr>
             <tr className="border-b border-white/20">
               <td className="py-3">BTC</td>
               <td className="py-3 text-right font-semibold">0.1234568</td>
             </tr>
             <tr className="border-b border-white/20">
-              <td className="py-3">EURC</td>
-              <td className="py-3 text-right font-semibold">3 500 082</td>
+              <td className="py-3">BOOST (€)</td>
+              <td className="py-3 text-right font-semibold">30 0000</td>
+            </tr>
+            <tr className="border-b border-white/20">
+              <td className="py-3">PARTICIPATION</td>
+              <td className="py-3 text-right font-semibold">50%</td>
             </tr>
             <tr>
-              <td className="py-3">BOOST</td>
-              <td className="py-3 text-right font-semibold">30 000</td>
+              <td className="py-3"><b>TOTAL</b></td>
+              <td className="py-3 text-right font-semibold">0.1234568</td>
             </tr>
           </tbody>
         </table>
