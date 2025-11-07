@@ -1,11 +1,10 @@
-"use client";
+"use client"; // Must be first line
+
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-
 export default function Home() {
-
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
   const [defitAmount, setDefitAmount] = useState(null);
@@ -14,14 +13,13 @@ export default function Home() {
     if (id) {
       fetch(`/api/get-user-defit-amount?id=${id}`)
         .then((res) => res.json())
-        .then((data) => setDefitAmount(data.result))
-        .catch((err) => console.error(err));
+        .then((data) => setDefitAmount(data.result ?? 0))
+        .catch(console.error);
     }
   }, [id]);
 
   return (
     <main className="flex flex-col items-center px-6">
-      {/* Logo avec ombre */}
       <div className="mb-6 rounded-2xl shadow-2xl p-[2px] bg-transparent">
         <div className="relative w-[120px] h-[120px] rounded-2xl overflow-hidden bg-[#4608ad]">
           <Image
@@ -36,7 +34,7 @@ export default function Home() {
       </div>
 
       <h1 className="text-3xl font-bold mb-2 text-center tracking-wide">
-        Dashboard {id ?? "—"} {defitAmount ?? "…"}
+        Dashboard {id ?? "—"} {defitAmount ?? "..."}
       </h1>
 
       <p className="text-base text-gray-200 text-center mb-6">
