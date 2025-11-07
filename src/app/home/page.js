@@ -1,8 +1,24 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+
 
 export default function Home() {
+
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id");
+  const [defitAmount, setDefitAmount] = useState(null);
+
+  useEffect(() => {
+    if (id) {
+      fetch(`/api/get-user-defit-amount?id=${id}`)
+        .then((res) => res.json())
+        .then((data) => setDefitAmount(data.result))
+        .catch((err) => console.error(err));
+    }
+  }, [id]);
+
   return (
     <main className="flex flex-col items-center px-6">
       {/* Logo avec ombre */}
@@ -20,7 +36,7 @@ export default function Home() {
       </div>
 
       <h1 className="text-3xl font-bold mb-2 text-center tracking-wide">
-        Dashboard
+        Dashboard {id ?? "—"} {defitAmount ?? "…"}
       </h1>
 
       <p className="text-base text-gray-200 text-center mb-6">
