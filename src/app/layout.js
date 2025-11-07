@@ -3,7 +3,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +17,24 @@ const geistMono = Geist_Mono({
 });
 
 export default function RootLayout({ children }) {
-  const [selected, setSelected] = useState("Option 1");
+  const router = useRouter();
+  const [selected, setSelected] = useState("1");
+
+  const handleSelect = (e) => {
+    const id = e.target.value;
+    setSelected(id);
+    localStorage.setItem("selectedAthlete", id); // store locally
+    router.push(`/home?id=${id}`); // 👈 navigates dynamically
+  };
+
+  // Load value from localStorage on mount
+  useEffect(() => {
+    const stored = localStorage.getItem("selectedAthlete");
+    if (stored) {
+      setSelected(stored);
+    }
+  }, []);
+
 
   return (
     <html lang="fr">
@@ -28,7 +46,7 @@ export default function RootLayout({ children }) {
         <title>The Crypto Athletes Club</title>
         <meta
           name="description"
-          content="Dashboard de suivi des performances & actifs DEFIT2"
+          content="Dashboard de suivi des performances & actifs"
         />
         <meta charSet="UTF-8" />
       </head>
@@ -45,17 +63,20 @@ export default function RootLayout({ children }) {
               {/* DROPDOWN SIMPLE */}
               <select
                 value={selected}
-                onChange={(e) => setSelected(e.target.value)}
+                onChange={handleSelect}
                 className="bg-white/10 text-white px-3 py-2 rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/30"
               >
-                <option value="Option 1" className="text-black">
-                  Option 1
+                <option value="1"  className="bg-[#8d6bf2] text-[#f3f0ff]">
+                  Usopp
                 </option>
-                <option value="Option 2" className="text-black">
-                  Option 2
+                <option value="3" className="bg-[#8d6bf2] text-[#f3f0ff]">
+                  Nico Robin
                 </option>
-                <option value="Option 3" className="text-black">
-                  Option 3
+                <option value="2" className="bg-[#8d6bf2] text-[#f3f0ff]">
+                  DTeach
+                </option>
+                <option value="4" className="bg-[#8d6bf2] text-[#f3f0ff]">
+                  Jinbe
                 </option>
               </select>
             </div>

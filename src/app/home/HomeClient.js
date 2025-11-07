@@ -1,4 +1,4 @@
-"use client"; // Must be first line
+"use client";
 
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -6,17 +6,26 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const searchParams = useSearchParams();
-  const id = searchParams.get("id");
+  const [id, setId] = useState(null); // initially null
   const [defitAmount, setDefitAmount] = useState(null);
 
   useEffect(() => {
-    if (id) {
-      fetch(`/api/get-user-defit-amount?id=${id}`)
+    // This runs only in the browser
+    const queryId = searchParams.get("id");
+    const storedId = localStorage.getItem("selectedAthlete");
+    const activeId = queryId || storedId;
+
+    if (activeId) {
+      setId(activeId);
+
+      fetch(`/api/get-user-defit-amount?id=${activeId}`)
         .then((res) => res.json())
         .then((data) => setDefitAmount(Number(data.result) ?? 0))
         .catch(console.error);
     }
-  }, [id]);
+  }, [searchParams]);
+
+  if (!id) return <p>Loading...</p>; // Optional loading state
 
   return (
     <main className="flex flex-col items-center px-6">
@@ -34,7 +43,7 @@ export default function Home() {
       </div>
 
       <h1 className="text-3xl font-bold mb-2 text-center tracking-wide">
-        Jinbe {id ?? "—"} 
+        Jinbe {id ?? "—"}
       </h1>
 
       <p className="text-base text-gray-200 text-center mb-6">
@@ -46,7 +55,9 @@ export default function Home() {
           <tbody>
             <tr className="border-b border-white/20">
               <td className="py-3">DEFIT</td>
-              <td className="py-3 text-right font-semibold">{defitAmount ?? "..."}</td>
+              <td className="py-3 text-right font-semibold">
+                {defitAmount ?? "..."}
+              </td>
             </tr>
             <tr className="border-b border-white/20">
               <td className="py-3">BTC</td>
@@ -61,7 +72,9 @@ export default function Home() {
               <td className="py-3 text-right font-semibold">50%</td>
             </tr>
             <tr>
-              <td className="py-3"><b>TOTAL</b></td>
+              <td className="py-3">
+                <b>TOTAL</b>
+              </td>
               <td className="py-3 text-right font-semibold">0.1234568</td>
             </tr>
           </tbody>
