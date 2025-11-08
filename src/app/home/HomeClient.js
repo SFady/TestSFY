@@ -32,7 +32,7 @@ export default function Home() {
       <div className="mb-6 rounded-2xl shadow-2xl p-[2px] bg-transparent">
         <div className="relative w-[120px] h-[120px] rounded-2xl shadow-2xl">
           <Image
-            src="/images/test.png"
+            src="/images/runner.webp"
             alt="Ichiro"
             fill
             className="object-cover rounded-2xl"
@@ -64,14 +64,9 @@ export default function Home() {
   <td className="py-3 flex items-center gap-2 whitespace-nowrap">
     BTC
     {/* Question mark with tooltip */}
-    <span className="relative group cursor-pointer flex-shrink-0">
-      <span className="w-5 h-5 flex items-center justify-center rounded-full bg-yellow-400 text-black text-xs font-bold">
-        ?
-      </span>
-      <span className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-44 max-w-xs rounded-md bg-gray-800 text-white text-xs text-center px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
-        Bitcoin holdings for this athlete
-      </span>
-    </span>
+    <span className="w-3 h-3 flex items-center justify-center rounded-full bg-white text-black text-[10px] font-bold">
+  ?
+</span>
   </td>
   <td className="py-3 text-right font-semibold whitespace-nowrap">0.1234568</td>
 </tr>
