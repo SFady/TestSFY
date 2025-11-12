@@ -63,24 +63,6 @@ export default function RootLayout({ children }) {
             aria-hidden="true"
           ></div>
 
-          {/* GRADIENT OVERLAY — affiché uniquement sur desktop */}
-          <div
-            className="hidden md:block absolute inset-0 z-10"
-            style={{
-              background: `
-                linear-gradient(
-                  to right,
-                  rgba(95,61,196,0) 0%,        /* far left transparent */
-                  rgba(95,61,196,0.2) 15%,     /* soft start */
-                  rgba(95,61,196,1) 35%,       /* fully opaque starts before table */
-                  rgba(95,61,196,1) 65%,       /* fully opaque across table zone */
-                  rgba(95,61,196,0.2) 85%,     /* fade out after content */
-                  rgba(95,61,196,0) 100%       /* fully transparent right edge */
-                )
-              `,
-            }}
-          ></div>
-
           {/* FOREGROUND CONTENT */}
           <div className="relative flex flex-col h-full z-20">
             {/* HEADER FIXE */}
@@ -110,12 +92,12 @@ export default function RootLayout({ children }) {
             </header>
 
             {/* CONTENU SCROLLABLE */}
-            <div className="flex-1 overflow-auto -webkit-overflow-scrolling-touch pt-24 pb-20 px-4">
+            <main className="flex-1 overflow-auto pt-24 pb-20 md:px-50">
               {children}
-            </div>
+            </main>
 
             {/* FOOTER FIXE */}
-            <footer className="fixed bottom-0 left-0 w-full bg-[#4608ad]/90 text-sm text-gray-300 text-center py-3 z-30 backdrop-blur-md">
+            <footer className="fixed bottom-0 left-0 w-full bg-[#4608ad]/90 text-sm text-gray-300 text-center py-3 z-30 backdrop-blur-md block md:hidden">
               <p>
                 &copy; 2025 Ichiro Labs — Tous droits réservés ·{" "}
                 <Link

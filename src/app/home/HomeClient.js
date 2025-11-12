@@ -6,11 +6,10 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const searchParams = useSearchParams();
-  const [id, setId] = useState(null); // initially null
+  const [id, setId] = useState(null);
   const [defitAmount, setDefitAmount] = useState(null);
 
   useEffect(() => {
-    // This runs only in the browser
     const queryId = searchParams.get("id");
     const storedId = localStorage.getItem("selectedAthlete");
     const activeId = queryId || storedId || 1;
@@ -25,10 +24,11 @@ export default function Home() {
     }
   }, [searchParams]);
 
-  if (!id) return <p>Loading...</p>; // Optional loading state
+  if (!id) return <p>Loading...</p>;
 
   return (
-    <main className="flex flex-col items-center px-6">
+    <main className="flex flex-col items-center pt-24 px-6 md:px-16 bg-[#5f3dc4]/90 rounded-2xl shadow-lg max-w-screen-xl mx-auto min-h-screen md:min-h-0">
+      {/* Image Card */}
       <div className="mb-6 rounded-2xl shadow-2xl p-[2px] bg-transparent">
         <div className="relative w-[120px] h-[120px] rounded-2xl shadow-2xl">
           <Image
@@ -41,16 +41,19 @@ export default function Home() {
           />
         </div>
       </div>
-      {/* <br/>   */}
+
+      {/* Name */}
       <h1 className="text-3xl font-bold mb-2 text-center tracking-wide">
         Jinbe {id ?? "—"}
       </h1>
 
+      {/* Subtitle */}
       <p className="text-base text-gray-200 text-center mb-6">
         Suivi des performances & actifs
       </p>
 
-      <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg w-full max-w-sm p-6 mb-24">
+      {/* Stats Table */}
+      <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 mb-24 w-full max-w-sm">
         <table className="w-full text-base">
           <tbody>
             <tr className="border-b border-white/20">
@@ -61,24 +64,27 @@ export default function Home() {
             </tr>
 
             <tr className="border-b border-white/20">
-  <td className="py-3 flex items-center gap-2 whitespace-nowrap">
-    BTC
-    {/* Question mark with tooltip */}
-    <span className="w-3 h-3 flex items-center justify-center rounded-full bg-white text-black text-[10px] font-bold">
-  ?
-</span>
-  </td>
-  <td className="py-3 text-right font-semibold whitespace-nowrap">0.1234568</td>
-</tr>
+              <td className="py-3 flex items-center gap-2 whitespace-nowrap">
+                BTC
+                <span className="w-3 h-3 flex items-center justify-center rounded-full bg-white text-black text-[10px] font-bold">
+                  ?
+                </span>
+              </td>
+              <td className="py-3 text-right font-semibold whitespace-nowrap">
+                0.1234568
+              </td>
+            </tr>
 
             <tr className="border-b border-white/20">
               <td className="py-3">BOOST (€)</td>
               <td className="py-3 text-right font-semibold">30 0000</td>
             </tr>
+
             <tr className="border-b border-white/20">
               <td className="py-3">PARTICIPATION</td>
               <td className="py-3 text-right font-semibold">50%</td>
             </tr>
+
             <tr>
               <td className="py-3">
                 <b>TOTAL</b>
