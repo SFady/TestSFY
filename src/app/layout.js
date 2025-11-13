@@ -60,12 +60,13 @@ export default function RootLayout({ children }) {
               }}
             ></div>
 
-            {/* Gradient droit : commence au bord droit de la zone centrale */}
+            {/* Gradient droit : plus net */}
             <div
               className="hidden md:block absolute top-0 h-full right-0 z-10"
               style={{
                 width: "calc(100vw - 1280px)",
-                background: "linear-gradient(to right, rgba(95,61,196,0.95) 0%, rgba(95,61,196,0) 100%)",
+                background:
+                  "linear-gradient(to right, rgba(95,61,196,0.95) 0%, rgba(95,61,196,0.8) 10%, rgba(95,61,196,0) 100%)",
               }}
             ></div>
           </div>
@@ -104,16 +105,8 @@ export default function RootLayout({ children }) {
 
             {/* ZONE CENTRALE OPAQUE ALIGNÉE À GAUCHE */}
             <main className="flex-grow flex justify-start items-start pt-24 pb-20 relative">
-              {/* Fond violet derrière le contenu */}
-              <div
-                className="absolute top-0 left-0 h-full z-10 md:px-4"
-                style={{
-                  width: "1280px", // largeur de la zone centrale
-                  backgroundColor: "rgba(95,61,196,0.95)",
-                }}
-              ></div>
+              <div className="absolute top-0 left-0 h-full bg-[#5f3dc4]/96 z-10 md:px-4 w-full max-w-screen-xl"></div>
 
-              {/* Contenu */}
               <div className="relative z-20 flex flex-col justify-start items-start w-full h-full px-6 md:px-12 max-w-screen-xl">
                 {children}
               </div>
