@@ -27,7 +27,7 @@ export default function Home() {
   if (!id) return <p>Loading...</p>;
 
   return (
-    <main className="flex flex-col items-center pt-24 px-6 md:px-16 bg-[#5f3dc4]/90 rounded-2xl shadow-lg max-w-screen-xl mx-auto min-h-screen md:min-h-0">
+    <main className="flex flex-col items-center pt-24 px-6 md:px-16 w-full h-full">
       {/* Image Card */}
       <div className="mb-6 rounded-2xl shadow-2xl p-[2px] bg-transparent">
         <div className="relative w-[120px] h-[120px] rounded-2xl shadow-2xl">
@@ -52,7 +52,7 @@ export default function Home() {
         Suivi des performances & actifs
       </p>
 
-      {/* Stats Table */}
+      {/* Stats Table (cadre réappliqué) */}
       <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 mb-24 w-full max-w-sm">
         <table className="w-full text-base">
           <tbody>
