@@ -5,6 +5,7 @@ import "./globals.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +20,7 @@ const geistMono = Geist_Mono({
 export default function RootLayout({ children }) {
   const router = useRouter();
   const [selected, setSelected] = useState("1");
+  const searchParams = useSearchParams();
 
   const handleSelect = (e) => {
     const id = e.target.value;
@@ -29,7 +31,14 @@ export default function RootLayout({ children }) {
 
   useEffect(() => {
     const stored = localStorage.getItem("selectedAthlete");
-    if (stored) setSelected(stored);
+    const activeId = stored || 1;
+
+    if (stored) {
+      router.push(`/home?id=${stored}`);
+    }
+
+    setSelected(activeId);
+
   }, []);
 
   return (

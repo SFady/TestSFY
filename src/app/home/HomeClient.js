@@ -10,9 +10,22 @@ export default function Home() {
   const [defitAmount, setDefitAmount] = useState(null);
 
   useEffect(() => {
+
     const queryId = searchParams.get("id");
-    const storedId = localStorage.getItem("selectedAthlete");
-    const activeId = queryId || storedId || 1;
+    const activeId = queryId || 1;
+    const selectedAthlete = localStorage.getItem("selectedAthlete");
+
+    if (!queryId) {
+      // Only redirect if URL has no id
+      if (selectedAthlete) {
+        window.location.replace(`/home?id=${encodeURIComponent(selectedAthlete)}`);
+      }
+      return; // stop further code
+    }
+
+    // if (selectedAthlete != queryId) {
+    //   router.push(`/home?id=${queryId}`);
+    // }
 
     if (activeId) {
       setId(activeId);
