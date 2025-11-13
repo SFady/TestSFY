@@ -48,9 +48,8 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="relative flex flex-col min-h-screen text-white overflow-hidden">
-          {/* IMAGE DE FOND + DÉGRADÉS GAUCHE ET DROITE */}
+          {/* IMAGE DE FOND */}
           <div className="hidden md:block absolute inset-0 z-0" aria-hidden="true">
-            {/* Image */}
             <div
               className="absolute inset-0"
               style={{
@@ -61,44 +60,31 @@ export default function RootLayout({ children }) {
               }}
             ></div>
 
-            {/* Dégradé gauche : transparent → violet plus opaque */}
+            {/* Gradient droit : commence au bord droit de la zone centrale */}
             <div
-              className="hidden md:block absolute inset-y-0 left-0 z-10"
+              className="hidden md:block absolute top-0 h-full right-0 z-10"
               style={{
-                width: "calc((100vw - 1280px)/2)",
-                background: "linear-gradient(to right, transparent, rgba(95,61,196,0.25) 100%)",
-              }}
-            ></div>
-
-            {/* Dégradé droite : violet plus opaque → transparent */}
-            <div
-              className="hidden md:block absolute inset-y-0 right-0 z-10"
-              style={{
-                width: "calc((100vw - 1280px)/2)",
-                background: "linear-gradient(to left, transparent, rgba(95,61,196,0.25) 100%)",
+                width: "calc(100vw - 1280px)",
+                background: "linear-gradient(to right, rgba(95,61,196,0.95) 0%, rgba(95,61,196,0) 100%)",
               }}
             ></div>
           </div>
 
           {/* CONTENU */}
           <div className="relative flex flex-col flex-1 z-20">
-            {/* HEADER FIXE */}
+            {/* HEADER FIXE ALIGNÉ À LA ZONE CENTRALE */}
             <header className="fixed top-0 left-0 w-full bg-[#4608ad]/90 p-4 shadow-md z-30 backdrop-blur-md">
-              <div
-                id="header-inner"
-                className="max-w-screen-xl mx-auto flex justify-between items-center px-4"
-              >
+              <div className="flex w-full max-w-screen-xl px-6 md:px-12 mx-0 items-center">
                 <h1
                   className="text-xl font-bold"
                   style={{ textShadow: "2px 2px 6px rgba(0,0,0,0.8)" }}
                 >
                   The Crypto Athletes Club
                 </h1>
-
                 <select
                   value={selected}
                   onChange={handleSelect}
-                  className="bg-white/10 text-white px-3 py-2 rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/30"
+                  className="ml-auto bg-white/10 text-white px-3 py-2 rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/30"
                 >
                   <option value="1" className="bg-[#8d6bf2] text-[#f3f0ff]">
                     Usopp
@@ -116,13 +102,19 @@ export default function RootLayout({ children }) {
               </div>
             </header>
 
-            {/* ZONE CENTRALE */}
-            <main className="flex-grow flex justify-center items-center pt-24 pb-20 relative">
-              {/* Fond violet légèrement transparent */}
-              <div className="absolute top-0 left-0 right-0 h-full bg-[#5f3dc4]/97 z-10 md:mx-auto md:max-w-screen-xl md:px-4"></div>
+            {/* ZONE CENTRALE OPAQUE ALIGNÉE À GAUCHE */}
+            <main className="flex-grow flex justify-start items-start pt-24 pb-20 relative">
+              {/* Fond violet derrière le contenu */}
+              <div
+                className="absolute top-0 left-0 h-full z-10 md:px-4"
+                style={{
+                  width: "1280px", // largeur de la zone centrale
+                  backgroundColor: "rgba(95,61,196,0.95)",
+                }}
+              ></div>
 
               {/* Contenu */}
-              <div className="relative z-20 flex flex-col justify-center items-center w-full h-full px-6 md:px-12 max-w-screen-xl">
+              <div className="relative z-20 flex flex-col justify-start items-start w-full h-full px-6 md:px-12 max-w-screen-xl">
                 {children}
               </div>
             </main>
