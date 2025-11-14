@@ -56,14 +56,31 @@ export default function Home() {
       </div>
 
       {/* Name */}
-      <h1 className="text-3xl font-bold mb-2 text-center tracking-wide">
-        Jinbe {id ?? "—"}
-      </h1>
+      {/* <h1 className="text-3xl font-bold mb-2 text-center tracking-wide"> */}
+      <select
+        className="bg-white/10 text-white px-3 py-2 rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/30"
+      >
+        <option value="1" className="bg-[#8d6bf2] text-[#f3f0ff]">
+          Usopp
+        </option>
+        <option value="3" className="bg-[#8d6bf2] text-[#f3f0ff]">
+          Nico Robin
+        </option>
+        <option value="2" className="bg-[#8d6bf2] text-[#f3f0ff]">
+          DTeach
+        </option>
+        <option value="4" className="bg-[#8d6bf2] text-[#f3f0ff]">
+          Jinbe
+        </option>
+      </select>
+      {/* </h1> */}
 
       {/* Subtitle */}
-      <p className="text-base text-gray-200 text-center mb-6">
+      {/* <p className="text-base text-gray-200 text-center mb-6">
         Suivi des performances & actifs
-      </p>
+      </p> */}
+
+      <br></br>
 
       {/* Stats Table (cadre réappliqué) */}
       <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 mb-24 w-full max-w-sm">
@@ -72,38 +89,33 @@ export default function Home() {
             <tr className="border-b border-white/20">
               <td className="py-3">DEFIT</td>
               <td className="py-3 text-right font-semibold">
-                {defitAmount ?? "..."}
+                {Number(defitAmount)?.toLocaleString("fr-FR", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2
+                }) ?? "..."}
               </td>
             </tr>
 
             <tr className="border-b border-white/20">
-              <td className="py-3 flex items-center gap-2 whitespace-nowrap">
-                BTC
-                <span className="w-3 h-3 flex items-center justify-center rounded-full bg-white text-black text-[10px] font-bold">
-                  ?
-                </span>
-              </td>
-              <td className="py-3 text-right font-semibold whitespace-nowrap">
-                0.1234568
-              </td>
+              <td className="py-3">Cours du Defit</td>
+              <td className="py-3 text-right font-semibold">0,45 $</td>
             </tr>
 
             <tr className="border-b border-white/20">
-              <td className="py-3">BOOST (€)</td>
-              <td className="py-3 text-right font-semibold">30 0000</td>
+              <td className="py-3">Euros</td>
+              <td className="py-3 text-right font-semibold">0</td>
             </tr>
 
             <tr className="border-b border-white/20">
-              <td className="py-3">PARTICIPATION</td>
-              <td className="py-3 text-right font-semibold">50%</td>
+              <td className="py-3">Dernière activité</td>
+              <td className="py-3 text-right font-semibold">14/11/2025</td>
             </tr>
 
             <tr>
-              <td className="py-3">
-                <b>TOTAL</b>
-              </td>
-              <td className="py-3 text-right font-semibold">0.1234568</td>
+              <td className="py-3 font-bold text-[#f6d860]">TOTAL Gains</td>
+              <td className="py-3 text-right font-bold text-[#f6d860]">120,96 €</td>
             </tr>
+
           </tbody>
         </table>
       </div>
