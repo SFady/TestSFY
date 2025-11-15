@@ -102,7 +102,7 @@ export default function Home() {
 
             <tr>
               <td className="py-3 font-bold text-[#f6d860]">TOTAL Gains</td>
-              <td className="py-3 text-right font-bold text-[#f6d860]">
+              <td className="py-3 text-right font-semibold text-[#f6d860]">
                 120,96 €
               </td>
             </tr>

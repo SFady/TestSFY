@@ -43,13 +43,13 @@ export default function RootLayout({ children }) {
               }}
             ></div>
 
-            {/* Gradient droit : plus net */}
+            {/* Gradient droit harmonisé */}
             <div
               className="hidden md:block absolute top-0 h-full right-0 z-10"
               style={{
                 width: "calc(100vw - 1280px)",
                 background:
-                  "linear-gradient(to right, rgba(95,61,196,0.95) 0%, rgba(95,61,196,0.8) 10%, rgba(95,61,196,0) 100%)",
+                  "linear-gradient(to right, rgba(74,46,163,0.95) 0%, rgba(74,46,163,0.8) 10%, rgba(74,46,163,0) 100%)",
               }}
             ></div>
           </div>
@@ -57,7 +57,7 @@ export default function RootLayout({ children }) {
           {/* CONTENU */}
           <div className="relative flex flex-col flex-1 z-20">
             {/* HEADER FIXE ALIGNÉ À LA ZONE CENTRALE */}
-            <header className="fixed top-0 left-0 w-full bg-[#4608ad]/90 p-4 shadow-md z-30 backdrop-blur-md">
+            <header className="fixed top-0 left-0 w-full bg-[#390494]/90 p-4 shadow-md z-30 backdrop-blur-md">
               <div className="flex w-full max-w-screen-xl px-6 md:px-12 mx-0 items-center">
                 <h1
                   className="text-xl font-bold"
@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
 
             {/* ZONE CENTRALE OPAQUE ALIGNÉE À GAUCHE */}
             <main className="flex-grow flex justify-start items-start pt-24 pb-20 relative">
-              <div className="absolute top-0 left-0 h-full bg-[#5f3dc4]/96 z-10 md:px-4 w-full max-w-screen-xl"></div>
+              <div className="absolute top-0 left-0 h-full bg-[#4a2ea3]/96 z-10 md:px-4 w-full max-w-screen-xl"></div>
 
               <div className="relative z-20 flex flex-col justify-start items-start w-full h-full px-6 md:px-12 max-w-screen-xl">
                 {children}
@@ -78,7 +78,7 @@ export default function RootLayout({ children }) {
             </main>
 
             {/* FOOTER MOBILE */}
-            <footer className="fixed bottom-0 left-0 w-full bg-[#4608ad]/90 text-sm text-gray-300 text-center py-3 z-30 backdrop-blur-md block md:hidden">
+            <footer className="fixed bottom-0 left-0 w-full bg-[#390494]/90 text-sm text-gray-300 text-center py-3 z-30 backdrop-blur-md block md:hidden">
               <p>
                 &copy; 2025 Ichiro Labs — Tous droits réservés ·{" "}
                 <Link
