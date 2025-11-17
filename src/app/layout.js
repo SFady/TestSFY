@@ -81,6 +81,9 @@ export default function RootLayout({ children }) {
 
             {/* ZONE CENTRALE OPAQUE ALIGNÉE À GAUCHE */}
             <main className="flex-grow flex justify-start items-start pt-24 pb-20 relative">
+
+              <div className="pt-16"></div>
+
               <div className="absolute top-0 left-0 h-full bg-[#4a2ea3]/96 z-10 md:px-4 w-full max-w-screen-xl"></div>
 
               <div className="relative z-20 flex flex-col justify-start items-start w-full h-full px-6 md:px-12 max-w-screen-xl">
