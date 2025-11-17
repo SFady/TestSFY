@@ -86,6 +86,9 @@ export default function RootLayout({ children }) {
               <div className="relative z-20 flex flex-col justify-start items-start w-full h-full px-6 md:px-12 max-w-screen-xl">
                 {children}
               </div>
+
+              {/* Padding bottom pour le footer mobile */}
+              <div className="pb-16"></div>
             </main>
 
             {/* FOOTER MOBILE */}
