@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="relative flex flex-col min-h-dvh text-white overflow-hidden">
+        <div className="relative flex flex-col h-dvh text-white overflow-hidden">
           {/* IMAGE DE FOND */}
           <div className="hidden md:block absolute inset-0 z-0" aria-hidden="true">
             <div
