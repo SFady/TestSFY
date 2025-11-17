@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="relative flex flex-col min-h-screen text-white overflow-hidden">
+        <div className="relative flex flex-col min-h-dvh text-white overflow-hidden">
           {/* IMAGE DE FOND */}
           <div className="hidden md:block absolute inset-0 z-0" aria-hidden="true">
             <div
@@ -65,6 +65,17 @@ export default function RootLayout({ children }) {
                 >
                   The Crypto Athletes Club
                 </h1>
+                <nav className="hidden md:flex gap-8 text-sm font-medium ml-auto justify-end">
+                  <Link href="/about" className="hover:text-white transition-colors">
+                    À propos
+                  </Link>
+                  <Link href="/dashboard" className="hover:text-white transition-colors">
+                    Dashboard
+                  </Link>
+                  <Link href="/contact" className="hover:text-white transition-colors">
+                    Contact
+                  </Link>
+                </nav>
               </div>
             </header>
 
@@ -78,17 +89,33 @@ export default function RootLayout({ children }) {
             </main>
 
             {/* FOOTER MOBILE */}
-            <footer className="fixed bottom-0 left-0 w-full bg-[#390494]/90 text-sm text-gray-300 text-center py-3 z-30 backdrop-blur-md block md:hidden">
-              <p>
-                &copy; 2025 Ichiro Labs — Tous droits réservés ·{" "}
-                <Link
-                  href="/about"
-                  className="underline hover:text-white transition-colors"
-                >
-                  À propos
+            <footer className="fixed bottom-0 left-0 w-full bg-[#390494]/95 text-xs text-gray-200 py-2 z-30 backdrop-blur-md block md:hidden border-t border-white/20">
+              <nav className="flex justify-around items-center">
+                <Link href="/" className="flex flex-col items-center gap-1 hover:text-white transition-colors">
+                  <span className="text-lg">🏠</span>
+                  <span>Home</span>
                 </Link>
-              </p>
+
+
+                <Link href="/dashboard" className="flex flex-col items-center gap-1 hover:text-white transition-colors">
+                  <span className="text-lg">📊</span>
+                  <span>Dashboard</span>
+                </Link>
+
+
+                <Link href="/wallet" className="flex flex-col items-center gap-1 hover:text-white transition-colors">
+                  <span className="text-lg">💰</span>
+                  <span>Wallet</span>
+                </Link>
+
+
+                <Link href="/profil" className="flex flex-col items-center gap-1 hover:text-white transition-colors">
+                  <span className="text-lg">👤</span>
+                  <span>Profil</span>
+                </Link>
+              </nav>
             </footer>
+
           </div>
         </div>
       </body>
