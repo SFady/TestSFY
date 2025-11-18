@@ -76,8 +76,8 @@ export default function Home() {
           <tbody>
 
             <tr className="border-b border-white/20">
-              <td className="py-3">DEFIT</td>
-              <td className="py-3 text-right font-semibold">
+              <td className="py-3 px-2">DEFIT</td>
+              <td className="py-3 px-2 text-right font-semibold">
                 {Number(defitAmount)?.toLocaleString("fr-FR", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
@@ -86,23 +86,23 @@ export default function Home() {
             </tr>
 
             <tr className="border-b border-white/20">
-              <td className="py-3">Cours du Defit</td>
-              <td className="py-3 text-right font-semibold">0,45 $</td>
+              <td className="py-3 px-2">Cours du Defit</td>
+              <td className="py-3 px-2 text-right font-semibold">0,45 $</td>
             </tr>
 
             <tr className="border-b border-white/20">
-              <td className="py-3">Euros</td>
-              <td className="py-3 text-right font-semibold">0</td>
+              <td className="py-3 px-2">Euros</td>
+              <td className="py-3 px-2 text-right font-semibold">0</td>
             </tr>
 
             <tr className="border-b border-white/20">
-              <td className="py-3">Dernière activité</td>
-              <td className="py-3 text-right font-semibold">14/11/2025</td>
+              <td className="py-3 px-2">Dernière activité</td>
+              <td className="py-3 px-2 text-right font-semibold">14/11/2025</td>
             </tr>
 
-            <tr>
-              <td className="py-3 font-bold text-[#f6d860]">TOTAL Gains</td>
-              <td className="py-3 text-right font-semibold text-[#f6d860]">
+            <tr className="text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 ">
+              <td className="py-3 px-2 font-bold">TOTAL Gains</td>
+              <td className="py-3 px-2 text-right font-semibold">
                 120,96 €
               </td>
             </tr>
