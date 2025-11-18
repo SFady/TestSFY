@@ -95,11 +95,14 @@ export default function Home() {
       <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 border-b-2 border-gray-700">
-              <th className="py-3 px-4">Player</th>
-              <th className="py-3 px-4">Score</th>
-              <th className="py-3 px-4">Rank</th>
-              <th className="py-3 px-4">Actions</th>
+            <tr className="text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
+              <th className="py-3 px-4">Date</th>
+              <th className="py-3 px-4">Athlete</th>
+              <th className="py-3 px-4">Activité</th>
+              <th className="py-3 px-4">Gain brut (Defit)</th>
+              <th className="py-3 px-4">Participation</th>
+              <th className="py-3 px-4">Gain net (Defit)</th>
+              <th className="py-3 px-4">Gain net (€)</th>
             </tr>
           </thead>
           <tbody className="text-gray-200">
@@ -111,14 +114,16 @@ export default function Home() {
                 <td className="py-3 px-4">{player.name}</td>
                 <td className="py-3 px-4">{player.score}</td>
                 <td className="py-3 px-4">{player.rank}</td>
-                <td className="py-3 px-4">
-                  <button className="text-primary hover:underline">Voir</button>
-                </td>
+                <td className="py-3 px-4">x</td>
+                <td className="py-3 px-4">x</td>
+                <td className="py-3 px-4">x</td>
+                <td className="py-3 px-4">x</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+
 
 
 

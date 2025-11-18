@@ -100,7 +100,7 @@ export default function Home() {
               <td className="py-3 px-2 text-right font-semibold">14/11/2025</td>
             </tr>
 
-            <tr className="text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 ">
+            <tr className="text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
               <td className="py-3 px-2 font-bold">TOTAL Gains</td>
               <td className="py-3 px-2 text-right font-semibold">
                 120,96 €
