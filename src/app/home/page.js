@@ -20,7 +20,6 @@ export default function Home() {
 
   useEffect(() => {
     const stored = localStorage.getItem("selectedAthlete");
-
     const finalId = stored || "1";
     setSelected(finalId);
 
@@ -39,14 +38,13 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col items-center pt-24 px-6 md:px-16 w-full h-full">
-
+    <main className="flex flex-col items-center pt-24 pb-20 px-6 md:px-16 w-full">
       {/* Image */}
       <div className="mb-6 rounded-2xl shadow-2xl p-[2px] bg-transparent">
         <div className="relative w-[120px] h-[120px] rounded-2xl shadow-2xl">
           <Image
             src="/images/runner.webp"
-            alt="Ichiro"
+            alt="Athlete"
             fill
             className="object-cover rounded-2xl"
             priority
@@ -60,7 +58,7 @@ export default function Home() {
         value={selected}
         onChange={handleSelect}
         className="bg-white/10 text-white px-3 py-2 rounded-lg border border-white/20 
-                   focus:outline-none focus:ring-2 focus:ring-white/30"
+                   focus:outline-none focus:ring-2 focus:ring-white/30 mb-6"
       >
         <option value="1" className="bg-[#8d6bf2] text-[#f3f0ff]">Usopp</option>
         <option value="3" className="bg-[#8d6bf2] text-[#f3f0ff]">Nico Robin</option>
@@ -68,13 +66,10 @@ export default function Home() {
         <option value="4" className="bg-[#8d6bf2] text-[#f3f0ff]">Jinbe</option>
       </select>
 
-      <br />
-
       {/* TABLE STATS */}
-      <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 mb-24 w-full max-w-sm">
+      <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-sm">
         <table className="w-full text-base">
           <tbody>
-
             <tr className="border-b border-white/20">
               <td className="py-3 px-2">DEFIT</td>
               <td className="py-3 px-2 text-right font-semibold">
@@ -106,7 +101,6 @@ export default function Home() {
                 120,96 €
               </td>
             </tr>
-
           </tbody>
         </table>
       </div>
