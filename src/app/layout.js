@@ -14,9 +14,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Fonction pour générer VYYYYMMDD_HHmm
+function getVersionString() {
+  const year = "2025";
+  const month = "11";
+  const day = "19";
+  const hours = "11";
+  const minutes = "33";
+
+  return `(V${year}${month}${day}_${hours}${minutes})`;
+}
+
 export default function RootLayout({ children }) {
-  // Largeur de la zone centrale
-  const centralWidth = 1280; // px
+  const centralWidth = 1280; // largeur de la zone centrale en px
+  const version = getVersionString();
 
   return (
     <html lang="fr">
@@ -43,14 +54,21 @@ export default function RootLayout({ children }) {
 
           {/* HEADER FULL WIDTH */}
           <header className="fixed top-0 left-0 w-full bg-[#390494]/90 p-4 shadow-md z-30 backdrop-blur-md">
-            <div className="flex w-full max-w-screen-xl px-6 md:px-12 mx-auto items-center">
-              <h1
-                className="text-xl font-bold"
-                style={{ textShadow: "2px 2px 6px rgba(0,0,0,0.8)" }}
-              >
-                The Crypto Athletes Club
-              </h1>
-              <nav className="hidden md:flex gap-8 text-sm font-medium ml-auto justify-end">
+            <div className="flex w-full max-w-screen-xl px-6 md:px-12 mx-auto items-center justify-between">
+
+              {/* Titre avec version alignée à la baseline du titre */}
+              <div className="flex items-baseline w-full">
+                <h1
+                  className="text-xl font-bold"
+                  style={{ textShadow: "2px 2px 6px rgba(0,0,0,0.8)" }}
+                >
+                  The Crypto Athletes Club
+                </h1>
+                <span className="text-[10px] md:text-xs text-gray-400 ml-2">{version}</span>
+              </div>
+
+              {/* Navigation desktop */}
+              <nav className="hidden md:flex gap-8 text-sm font-medium justify-end ml-auto">
                 <Link href="/home" className="hover:text-white transition-colors">
                   Dashboard
                 </Link>
@@ -66,7 +84,6 @@ export default function RootLayout({ children }) {
 
           {/* ZONE CENTRALE CENTRÉE */}
           <main className="flex-grow flex justify-center items-center relative pt-24 pb-20">
-
             {/* Overlay violet horizontal gradient */}
             <div
               className="absolute top-0 left-0 h-full w-full z-10"
