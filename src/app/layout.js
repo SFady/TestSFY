@@ -20,7 +20,7 @@ function getVersionString() {
   const month = "11";
   const day = "19";
   const hours = "11";
-  const minutes = "55";
+  const minutes = "59";
 
   return `(V${year}${month}${day}_${hours}${minutes})`;
 }
@@ -42,6 +42,7 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+
         <div className="relative flex flex-col min-h-screen text-white">
 
           {/* IMAGE DE FOND FIXE */}
@@ -70,7 +71,7 @@ export default function RootLayout({ children }) {
           <header className="fixed top-0 left-0 w-full bg-[#390494]/90 p-4 shadow-md z-30 backdrop-blur-md">
             <div className="flex w-full max-w-screen-xl px-6 md:px-12 mx-auto items-center justify-between">
 
-              {/* Titre avec version alignée à la baseline du titre */}
+              {/* Titre avec version alignée */}
               <div className="flex items-baseline w-full">
                 <h1
                   className="text-xl font-bold"
@@ -97,7 +98,8 @@ export default function RootLayout({ children }) {
           </header>
 
           {/* ZONE CENTRALE */}
-          <main className="relative pt-24 pb-20 w-full flex flex-col">
+          <main className="relative w-full flex flex-col pt-24 pb-20
+                           h-screen overflow-hidden md:overflow-visible">
             {/* Contenu */}
             <div className="relative z-20 flex flex-col w-full px-6 md:px-12 max-w-screen-xl mx-auto">
               {children}
@@ -123,6 +125,7 @@ export default function RootLayout({ children }) {
               </Link>
             </nav>
           </footer>
+
         </div>
       </body>
     </html>
