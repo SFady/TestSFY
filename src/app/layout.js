@@ -20,7 +20,7 @@ function getVersionString() {
   const month = "11";
   const day = "19";
   const hours = "11";
-  const minutes = "33";
+  const minutes = "45";
 
   return `(V${year}${month}${day}_${hours}${minutes})`;
 }
@@ -42,15 +42,13 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="relative flex flex-col h-dvh text-white overflow-hidden">
+        <div className="relative flex flex-col min-h-screen text-white">
 
-          {/* IMAGE DE FOND */}
-          <div className="absolute inset-0 z-0" aria-hidden="true">
-            <div
-              className="absolute inset-0 bg-center bg-cover"
-              style={{ backgroundImage: "url('/images/banner.webp')" }}
-            ></div>
-          </div>
+          {/* IMAGE DE FOND FIXE */}
+          <div
+            className="fixed inset-0 bg-center bg-cover z-0"
+            style={{ backgroundImage: "url('/images/banner.webp')" }}
+          ></div>
 
           {/* HEADER FULL WIDTH */}
           <header className="fixed top-0 left-0 w-full bg-[#390494]/90 p-4 shadow-md z-30 backdrop-blur-md">
