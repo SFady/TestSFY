@@ -20,7 +20,7 @@ function getVersionString() {
   const month = "11";
   const day = "19";
   const hours = "11";
-  const minutes = "50";
+  const minutes = "55";
 
   return `(V${year}${month}${day}_${hours}${minutes})`;
 }
@@ -48,6 +48,22 @@ export default function RootLayout({ children }) {
           <div
             className="fixed inset-0 bg-center bg-cover z-0"
             style={{ backgroundImage: "url('/images/banner.webp')" }}
+          ></div>
+
+          {/* OVERLAY VIOLET FULL SCREEN */}
+          <div
+            className="fixed inset-0 z-10"
+            style={{
+              background: `
+                linear-gradient(
+                  to right,
+                  rgba(74,46,163,0) 0%, 
+                  rgba(74,46,163,0.95) calc((100% - ${centralWidth}px)/2), 
+                  rgba(74,46,163,0.95) calc((100% + ${centralWidth}px)/2), 
+                  rgba(74,46,163,0) 100%
+                )
+              `,
+            }}
           ></div>
 
           {/* HEADER FULL WIDTH */}
@@ -80,26 +96,10 @@ export default function RootLayout({ children }) {
             </div>
           </header>
 
-          {/* ZONE CENTRALE CENTRÉE */}
-          <main className="flex-grow flex justify-center items-center relative pt-24 pb-20">
-            {/* Overlay violet horizontal gradient */}
-            <div
-              className="absolute top-0 left-0 h-full w-full z-10"
-              style={{
-                background: `
-                  linear-gradient(
-                    to right,
-                    rgba(74,46,163,0) 0%, 
-                    rgba(74,46,163,0.95) calc((100% - ${centralWidth}px)/2), 
-                    rgba(74,46,163,0.95) calc((100% + ${centralWidth}px)/2), 
-                    rgba(74,46,163,0) 100%
-                  )
-                `,
-              }}
-            ></div>
-
-            {/* Contenu réel centré */}
-            <div className="relative z-20 flex flex-col justify-center items-center w-full h-full px-6 md:px-12 max-w-screen-xl text-center">
+          {/* ZONE CENTRALE */}
+          <main className="relative pt-24 pb-20 w-full flex flex-col">
+            {/* Contenu */}
+            <div className="relative z-20 flex flex-col w-full px-6 md:px-12 max-w-screen-xl mx-auto">
               {children}
             </div>
           </main>
