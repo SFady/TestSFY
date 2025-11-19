@@ -19,8 +19,8 @@ function getVersionString() {
   const year = "2025";
   const month = "11";
   const day = "19";
-  const hours = "11";
-  const minutes = "59";
+  const hours = "12";
+  const minutes = "02";
 
   return `(V${year}${month}${day}_${hours}${minutes})`;
 }
@@ -98,8 +98,7 @@ export default function RootLayout({ children }) {
           </header>
 
           {/* ZONE CENTRALE */}
-          <main className="relative w-full flex flex-col pt-24 pb-20
-                           h-screen overflow-hidden md:overflow-visible">
+          <main className="relative w-full flex flex-col pt-24 pb-20 min-h-screen overflow-y-auto">
             {/* Contenu */}
             <div className="relative z-20 flex flex-col w-full px-6 md:px-12 max-w-screen-xl mx-auto">
               {children}
