@@ -20,7 +20,7 @@ function getVersionString() {
   const month = "11";
   const day = "19";
   const hours = "12";
-  const minutes = "02";
+  const minutes = "04";
 
   return `(V${year}${month}${day}_${hours}${minutes})`;
 }

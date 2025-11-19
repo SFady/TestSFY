@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-
   const [defitAmount, setDefitAmount] = useState(null);
   const [selected, setSelected] = useState("1");
 
@@ -22,10 +21,7 @@ export default function Home() {
     const stored = localStorage.getItem("selectedAthlete");
     const finalId = stored || "1";
     setSelected(finalId);
-
-    if (!stored) {
-      localStorage.setItem("selectedAthlete", finalId);
-    }
+    if (!stored) localStorage.setItem("selectedAthlete", finalId);
 
     fetchDefitAmount(finalId);
   }, []);
@@ -38,8 +34,13 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col items-center pt-24 pb-20 px-6 md:px-16 w-full">
-      {/* Image */}
+    <main className="flex flex-col items-center justify-start w-full
+                     max-w-screen-xl mx-auto px-6 md:px-16
+                     pt-6 pb-6 md:pt-0 md:pb-0
+                     min-h-[calc(100vh-96px)] md:min-h-auto
+                     overflow-y-auto md:overflow-visible">
+
+      {/* Image du profil */}
       <div className="mb-6 rounded-2xl shadow-2xl p-[2px] bg-transparent">
         <div className="relative w-[120px] h-[120px] rounded-2xl shadow-2xl">
           <Image
@@ -53,7 +54,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* SELECT SIMPLE NATIVE */}
+      {/* Sélecteur d’athlète */}
       <select
         value={selected}
         onChange={handleSelect}
@@ -66,8 +67,8 @@ export default function Home() {
         <option value="4" className="bg-[#8d6bf2] text-[#f3f0ff]">Jinbe</option>
       </select>
 
-      {/* TABLE STATS */}
-      <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 w-full max-w-sm">
+      {/* Tableau des stats */}
+      <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 mb-6 w-full max-w-sm">
         <table className="w-full text-base">
           <tbody>
             <tr className="border-b border-white/20">
