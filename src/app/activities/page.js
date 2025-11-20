@@ -103,13 +103,13 @@ export default function Home() {
                 key={row.id}
                 className={`hover:bg-white/100 transition-colors ${idx % 2 === 0 ? "bg-[#5339A0]" : "bg-[#543FAF]/5"}`}
               >
-                <td className="py-3 px-4">{new Date(row.date_claimed).toLocaleDateString("fr-FR")}</td>
-                <td className="py-3 px-4">{row.user_name}</td>
-                <td className="py-3 px-4">{row.activity_name}</td>
-                <td className="py-3 px-4">{row.defit_amount}</td>
-                <td className="py-3 px-4">{Math.floor(row.participation_percentage)}%</td>
-                <td className="py-3 px-4">{(row.defit_amount * row.participation_percentage / 100).toFixed(2)}</td>
-                <td className="py-3 px-4">x</td>
+                <td className="text-white py-3 px-4">{new Date(row.date_claimed).toLocaleDateString("fr-FR")}</td>
+                <td className="text-white py-3 px-4">{row.user_name}</td>
+                <td className="text-white py-3 px-4">{row.activity_name}</td>
+                <td className="text-white py-3 px-4">{row.defit_amount}</td>
+                <td className="text-white py-3 px-4">{Math.floor(row.participation_percentage)}%</td>
+                <td className="text-white py-3 px-4">{(row.defit_amount * row.participation_percentage / 100).toFixed(2)}</td>
+                <td className="text-white py-3 px-4">x</td>
               </tr>
             ))}
           </tbody>
