@@ -44,7 +44,7 @@ export default function Home() {
       <div className="mb-6 rounded-2xl shadow-2xl p-[2px] bg-transparent">
         <div className="relative w-[120px] h-[120px] rounded-2xl shadow-2xl">
           <Image
-            src="/images/runner.webp"
+            src="/images/nude_runner.png"
             alt="Athlete"
             fill
             className="object-cover rounded-2xl"
