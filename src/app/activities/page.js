@@ -33,7 +33,7 @@ export default function Home() {
           </thead>
           <tbody className="text-gray-200">
             {rows.map((row, idx) => {
-              const rowClass = `hover:bg-white/10 transition-colors ${idx % 2 === 0 ? "bg-[#5339A0]/90" : "bg-[#5C42A6]/80"} border-b border-white/20`;
+              const rowClass = `hover:bg-white/10 transition-colors ${idx % 2 === 0 ? "bg-[#5C42A6]/80" : "bg-[#5C42A6]/80"} border-b border-white/20`;
               return (
                 <tr key={row.id} className={rowClass}>
                   <td className="text-white py-3 px-4">
