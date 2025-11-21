@@ -84,8 +84,11 @@ export default function Home() {
         </div>
       </div> */}
 
-      <div className="bg-[#5C42A6] backdrop-blur-md rounded-2xl shadow-lg p-6 mb-6 w-full ">
-        <table className="w-full text-left border-collapse">
+      {/* <div className="bg-[#5C42A6] backdrop-blur-md rounded-2xl shadow-lg p-6 mb-6 w-full "> */}
+      <div className="bg-[#5C42A6] backdrop-blur-md rounded-2xl shadow-lg p-6 mb-6 w-full overflow-x-auto">
+        <table className="min-w-max text-left border-collapse">
+
+          {/* <table className="w-full text-left border-collapse"> */}
           <thead>
             <tr className="text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
               <th className="py-3 px-4">Date</th>
@@ -101,7 +104,7 @@ export default function Home() {
             {rows.map((row, idx) => (
               <tr
                 key={row.id}
-                className={`hover:bg-white/100 transition-colors ${idx % 2 === 0 ? "bg-[#5339A0]" : "bg-[#543FAF]/5"}`}
+                className={`hover:bg-white/10 transition-colors ${idx % 2 === 0 ? "bg-[#543FAF]/5" : "bg-[#543FAF]/5"} border-b border-white/20`}
               >
                 <td className="text-white py-3 px-4">{new Date(row.date_claimed).toLocaleDateString("fr-FR")}</td>
                 <td className="text-white py-3 px-4">{row.user_name}</td>

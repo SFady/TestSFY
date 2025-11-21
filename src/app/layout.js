@@ -18,15 +18,15 @@ const geistMono = Geist_Mono({
 function getVersionString() {
   const year = "2025";
   const month = "11";
-  const day = "19";
-  const hours = "12";
-  const minutes = "04";
+  const day = "21";
+  const hours = "11";
+  const minutes = "37";
 
   return `(V${year}${month}${day}_${hours}${minutes})`;
 }
 
 export default function RootLayout({ children }) {
-  const centralWidth = 1280; // largeur de la zone centrale en px
+  const centralWidth = 1280;
   const version = getVersionString();
 
   return (
@@ -67,11 +67,9 @@ export default function RootLayout({ children }) {
             }}
           ></div>
 
-          {/* HEADER FULL WIDTH */}
+          {/* HEADER FIXE */}
           <header className="fixed top-0 left-0 w-full bg-[#390494]/90 p-4 shadow-md z-30 backdrop-blur-md">
             <div className="flex w-full max-w-screen-xl px-6 md:px-12 mx-auto items-center justify-between">
-
-              {/* Titre avec version alignée */}
               <div className="flex items-baseline w-full">
                 <h1
                   className="text-xl font-bold"
@@ -82,25 +80,19 @@ export default function RootLayout({ children }) {
                 <span className="text-[10px] md:text-xs text-gray-400 ml-2">{version}</span>
               </div>
 
-              {/* Navigation desktop */}
+              {/* Nav desktop */}
               <nav className="hidden md:flex gap-8 text-sm font-medium justify-end ml-auto">
-                <Link href="/home" className="hover:text-white transition-colors">
-                  Dashboard
-                </Link>
-                <Link href="/activities" className="hover:text-white transition-colors">
-                  Activités
-                </Link>
-                <Link href="/rankings" className="hover:text-white transition-colors">
-                  Classements
-                </Link>
+                <Link href="/home" className="hover:text-white transition-colors">Dashboard</Link>
+                <Link href="/activities" className="hover:text-white transition-colors">Activités</Link>
+                <Link href="/rankings" className="hover:text-white transition-colors">Classements</Link>
               </nav>
             </div>
           </header>
 
-          {/* ZONE CENTRALE */}
-          <main className="relative w-full flex flex-col pt-24 pb-20 min-h-screen overflow-y-auto">
+          {/* ZONE CENTRALE - chaque "écran" scrollable */}
+          <main className="relative flex flex-col pt-24 pb-20 h-screen overflow-y-auto">
             {/* Contenu */}
-            <div className="relative z-20 flex flex-col w-full px-6 md:px-12 max-w-screen-xl mx-auto">
+            <div className="relative z-20 flex flex-col w-full px-6 md:px-12 max-w-screen-xl mx-auto h-full">
               {children}
             </div>
           </main>
@@ -112,12 +104,10 @@ export default function RootLayout({ children }) {
                 <span className="text-lg">🏠</span>
                 <span>Dashboard</span>
               </Link>
-
               <Link href="/activities" className="flex flex-col items-center gap-1 hover:text-white transition-colors">
                 <span className="text-lg">📊</span>
                 <span>Activités</span>
               </Link>
-
               <Link href="/rankings" className="flex flex-col items-center gap-1 hover:text-white transition-colors">
                 <span className="text-lg">👤</span>
                 <span>Classements</span>
