@@ -88,34 +88,6 @@ export default function RootLayout({ children }) {
               {/* Contenu injecté */}
               {children}
 
-              {/* Exemple tableau */}
-              <div className="bg-[#5C42A6] rounded-2xl shadow-lg p-6 mb-6 w-full overflow-x-auto">
-                <table className="min-w-max text-left border-collapse">
-                  <thead>
-                    <tr className="text-white bg-[#5339A0]">
-                      <th className="py-3 px-4">Date</th>
-                      <th className="py-3 px-4">Athlete</th>
-                      <th className="py-3 px-4">Activité</th>
-                      <th className="py-3 px-4">Gain brut (Defit)</th>
-                      <th className="py-3 px-4">Participation</th>
-                      <th className="py-3 px-4">Gain net (Defit)</th>
-                      <th className="py-3 px-4">Gain net (€)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-gray-200">
-                    {/* Remplace par rows.map */}
-                    <tr className="hover:bg-[#5339A0]/90 transition-colors">
-                      <td className="text-white py-3 px-4">19/11/2025</td>
-                      <td className="text-white py-3 px-4">Alice</td>
-                      <td className="text-white py-3 px-4">Running</td>
-                      <td className="text-white py-3 px-4">2500</td>
-                      <td className="text-white py-3 px-4">80%</td>
-                      <td className="text-white py-3 px-4">2000.00</td>
-                      <td className="text-white py-3 px-4">€2000.00</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
 
             </div>
           </main>
