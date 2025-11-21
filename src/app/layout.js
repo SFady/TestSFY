@@ -14,7 +14,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Fonction pour générer VYYYYMMDD_HHmm
 function getVersionString() {
   const year = "2025";
   const month = "11";
@@ -82,13 +81,9 @@ export default function RootLayout({ children }) {
           </header>
 
           {/* ZONE CENTRALE - scroll global */}
-          <main className="relative flex flex-col pt-24 pb-20 min-h-screen overflow-y-auto">
-            <div className="relative z-20 flex flex-col w-full px-6 md:px-12 max-w-screen-xl mx-auto">
-
-              {/* Contenu injecté */}
+          <main className="relative flex flex-col pt-24 pb-20 min-h-screen overflow-x-auto overflow-y-auto">
+            <div className="relative z-20 flex flex-col w-max min-w-full md:max-w-screen-xl md:mx-auto px-0 md:px-12">
               {children}
-
-
             </div>
           </main>
 
