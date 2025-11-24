@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 function getVersionString() {
   const year = "2025";
   const month = "11";
-  const day = "21";
-  const hours = "14";
-  const minutes = "48";
+  const day = "24";
+  const hours = "11";
+  const minutes = "05";
   return `(V${year}${month}${day}_${hours}${minutes})`;
 }
 
