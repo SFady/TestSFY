@@ -41,17 +41,15 @@ export default function Home() {
                      overflow-y-auto md:overflow-visible">
 
       {/* Image du profil */}
-      <div className="mb-6 rounded-2xl shadow-2xl p-[2px] bg-transparent">
-        <div className="relative w-[120px] h-[120px] rounded-2xl shadow-2xl">
-          <Image
-            src="/images/nude_runner.png"
-            alt="Athlete"
-            fill
-            className="object-cover rounded-2xl"
-            priority
-            sizes="(max-width: 768px) 100px, 100px"
-          />
-        </div>
+      <div className="mb-6">
+        <Image
+          src="/images/runner_init2.png"
+          alt="Athlete"
+          width={200}   // ou la taille souhaitée
+          height={400}
+          className="object-contain"
+          priority
+        />
       </div>
 
       {/* Sélecteur d’athlète */}
