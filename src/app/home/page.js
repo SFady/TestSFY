@@ -53,7 +53,7 @@ export default function Home() {
       </div>
 
       {/* Image du profil centrée */}
-      <div className="flex justify-center mb-6">
+      <div className="flex justify-center mb-4">
         <Image
           src="/images/runner_init2.png"
           alt="Athlete"
