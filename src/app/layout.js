@@ -88,7 +88,7 @@ export default function RootLayout({ children }) {
           </main>
 
           {/* FOOTER MOBILE */}
-          <footer className="fixed bottom-0 left-0 w-full bg-[#390494]/95 text-xs text-gray-200 py-2 z-30 backdrop-blur-md block md:hidden border-t border-white/20 pt-4">
+          <footer className="fixed bottom-0 left-0 w-full bg-[#390494]/95 text-xs text-gray-200 py-2 z-30 backdrop-blur-md block md:hidden border-t border-white/20">
             <nav className="flex justify-around items-center">
               <Link href="/home" className="flex flex-col items-center gap-1 hover:text-white transition-colors">
                 <span className="text-lg">🏠</span>
