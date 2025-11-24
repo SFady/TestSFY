@@ -81,7 +81,7 @@ export default function RootLayout({ children }) {
           </header>
 
           {/* ZONE CENTRALE - scroll global */}
-          <main className="relative flex flex-col pt-24 pb-20 min-h-screen overflow-x-auto overflow-y-auto">
+          <main className="relative flex flex-col pt-16 md:pt-24 pb-20 min-h-screen overflow-x-auto overflow-y-auto">
             <div className="relative z-20 flex flex-col w-max min-w-full md:max-w-screen-xl md:mx-auto px-0 md:px-12">
               {children}
             </div>
