@@ -37,7 +37,7 @@ export default function Home() {
     <main className="relative w-full max-w-screen-xl mx-auto px-6 md:px-16 pt-6 pb-6 md:pt-0 md:pb-0 min-h-[calc(100vh-96px)] overflow-y-auto md:overflow-visible">
 
       {/* Sélecteur d’athlète centré au-dessus de l’image */}
-      <div className="flex justify-center mb-4 mt-6 md:mt-10">
+      <div className="flex justify-center mb-4 mt-4 md:mt-10">
         <select
           value={selected}
           onChange={handleSelect}
