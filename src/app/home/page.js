@@ -54,7 +54,7 @@ export default function Home() {
 
       {/* Image du profil centrée */}
       <div className="flex justify-center mb-4">
-        <div className="p-3 rounded-2xl inline-block">
+        <div className="p-3 rounded-2xl inline-block relative z-50">
           <Image
             src="/images/runner_init2.png"
             alt="Athlete"
