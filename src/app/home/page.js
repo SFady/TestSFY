@@ -52,9 +52,11 @@ export default function Home() {
         </select>
       </div>
 
-      {/* Image du profil centrée */}
-      <div className="flex justify-center mb-4">
-        <div className="p-3 rounded-2xl inline-block relative z-50">
+
+      <div className="flex justify-center items-start gap-2 mb-4">
+
+        {/* IMAGE À GAUCHE avec position relative */}
+        <div className="rounded-2xl inline-block relative">
           <Image
             src="/images/runner_init2.png"
             alt="Athlete"
@@ -62,8 +64,36 @@ export default function Home() {
             height={400}
             loading="eager"
           />
+
+          {/* TRAIT partant du milieu horizontal de la tête */}
+          <div
+            className="absolute bg-gray-600 h-px"
+            style={{
+              top: "20px",       // milieu de la tête
+              left: "50%",       // milieu horizontal de l'image
+              width: "80px"      // longueur du trait vers le texte
+            }}
+          />
         </div>
+
+        {/* TEXTE À DROITE, encore plus proche du trait */}
+        <div className="ml-0 flex flex-col justify-start" style={{ marginTop: "8px" }}>
+          <h2 className="text-sm font-semibold leading-snug">Classe A / Niveau 0</h2>
+        </div>
+
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* Tableau des stats */}
       <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 mb-6 w-full max-w-sm mx-auto">
