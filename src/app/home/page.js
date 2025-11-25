@@ -54,13 +54,15 @@ export default function Home() {
 
       {/* Image du profil centrée */}
       <div className="flex justify-center mb-4">
-        <Image
-          src="/images/runner_init2.png"
-          alt="Athlete"
-          width={200}
-          height={400}
-          priority
-        />
+        <div className="p-3 rounded-2xl inline-block">
+          <Image
+            src="/images/runner_init2.png"
+            alt="Athlete"
+            width={200}
+            height={400}
+            loading="eager"
+          />
+        </div>
       </div>
 
       {/* Tableau des stats */}
@@ -88,7 +90,7 @@ export default function Home() {
               <td className="py-3 px-2">Dernière activité</td>
               <td className="py-3 px-2 text-right font-semibold">14/11/2025</td>
             </tr>
-            <tr className="text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
+            <tr className="border-t-4 border-transparent text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
               <td className="py-3 px-2 font-bold">TOTAL Gains</td>
               <td className="py-3 px-2 text-right font-semibold">120,96 €</td>
             </tr>
