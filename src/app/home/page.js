@@ -2,10 +2,13 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useDefitPrice } from "../api/useDefitPrice/useDefitPrice";
 
 export default function Home() {
   const [defitAmount, setDefitAmount] = useState(null);
   const [selected, setSelected] = useState("1");
+
+  const { price: defitPrice, error } = useDefitPrice();
 
   const fetchDefitAmount = async (athleteId) => {
     try {
@@ -90,7 +93,7 @@ export default function Home() {
             <tr className="border-b border-white/20">
               <td className="py-3 px-2">DEFIT</td>
               <td className="py-3 px-2 text-right font-semibold">
-                {Number(defitAmount)?.toLocaleString("fr-FR", {
+                {Number(defitAmount * defitPrice)?.toLocaleString("fr-FR", {
                   style: "currency",
                   currency: "EUR",
                   minimumFractionDigits: 2,
@@ -100,7 +103,7 @@ export default function Home() {
             </tr>
             <tr className="border-b border-white/20">
               <td className="py-3 px-2">Améliorations</td>
-              <td className="py-3 px-2 text-right font-semibold">0,45 €</td>
+              <td className="py-3 px-2 text-right font-semibold">0 €</td>
             </tr>
             <tr className="border-b border-white/20">
               <td className="py-3 px-2">Disponible</td>
@@ -108,7 +111,13 @@ export default function Home() {
             </tr>
             <tr className="border-t-4 border-transparent text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
               <td className="py-2 px-2 font-bold">TOTAL Gains</td>
-              <td className="py-2 px-2 text-right font-semibold">120,96 €</td>
+              <td className="py-2 px-2 text-right font-semibold">
+                {Number(defitAmount * defitPrice)?.toLocaleString("fr-FR", {
+                  style: "currency",
+                  currency: "EUR",
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                }) ?? "..."}</td>
             </tr>
           </tbody>
         </table>

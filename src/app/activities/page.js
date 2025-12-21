@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useDefitPrice } from "../api/useDefitPrice/useDefitPrice";
 
 export default function Home() {
   const [rows, setRows] = useState([]);
   const [isClient, setIsClient] = useState(false);
+  const { price: defitPrice, error } = useDefitPrice();
 
   useEffect(() => {
     setIsClient(true);
@@ -44,7 +46,7 @@ export default function Home() {
                   <td className="text-white py-3 px-4">{row.defit_amount}</td>
                   <td className="text-white py-3 px-4">{Math.floor(row.participation_percentage)}%</td>
                   <td className="text-white py-3 px-4">{(row.defit_amount * row.participation_percentage / 100).toFixed(2)}</td>
-                  <td className="text-white py-3 px-4">x</td>
+                  <td className="text-white py-3 px-4">{(row.defit_amount * row.participation_percentage * defitPrice / 100).toFixed(2)}</td>
                 </tr>
               );
             })}
