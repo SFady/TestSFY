@@ -83,18 +83,6 @@ export default function Home() {
 
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
       {/* Tableau des stats */}
       <div className="bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 mb-6 w-full max-w-sm mx-auto">
         <table className="w-full text-base">
@@ -103,22 +91,20 @@ export default function Home() {
               <td className="py-3 px-2">DEFIT</td>
               <td className="py-3 px-2 text-right font-semibold">
                 {Number(defitAmount)?.toLocaleString("fr-FR", {
+                  style: "currency",
+                  currency: "EUR",
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 }) ?? "..."}
               </td>
             </tr>
             <tr className="border-b border-white/20">
-              <td className="py-3 px-2">Cours du Defit</td>
-              <td className="py-3 px-2 text-right font-semibold">0,45 $</td>
+              <td className="py-3 px-2">Améliorations</td>
+              <td className="py-3 px-2 text-right font-semibold">0,45 €</td>
             </tr>
             <tr className="border-b border-white/20">
-              <td className="py-3 px-2">Euros</td>
-              <td className="py-3 px-2 text-right font-semibold">0</td>
-            </tr>
-            <tr className="border-b border-white/20">
-              <td className="py-3 px-2">Dernière activité</td>
-              <td className="py-3 px-2 text-right font-semibold">14/11/2025</td>
+              <td className="py-3 px-2">Disponible</td>
+              <td className="py-3 px-2 text-right font-semibold">0 €</td>
             </tr>
             <tr className="border-t-4 border-transparent text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
               <td className="py-2 px-2 font-bold">TOTAL Gains</td>
