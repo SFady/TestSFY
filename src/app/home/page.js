@@ -5,7 +5,9 @@ import { useEffect, useState } from "react";
 import { useDefitPrice } from "../api/useDefitPrice/useDefitPrice";
 
 export default function Home() {
-  const [defitAmount, setDefitAmount] = useState(null);
+
+  const [defitAmount, setDefitAmount] = useState(0);
+  const [euroAmount, setEuroAmount] = useState(0);
   const [selected, setSelected] = useState("1");
 
   const { price: defitPrice, error } = useDefitPrice();
@@ -14,7 +16,8 @@ export default function Home() {
     try {
       const res = await fetch(`/api/get-user-defit-amount?id=${athleteId}`);
       const data = await res.json();
-      setDefitAmount(Number(data.result) ?? 0);
+      setDefitAmount(Number(data.defits) ?? 0);
+      setEuroAmount(Number(data.euros) ?? 0);
     } catch (error) {
       console.error("Erreur fetch DEFIT:", error);
     }
@@ -107,17 +110,25 @@ export default function Home() {
             </tr>
             <tr className="border-b border-white/20">
               <td className="py-3 px-2">Disponible</td>
-              <td className="py-3 px-2 text-right font-semibold">0 €</td>
-            </tr>
-            <tr className="border-t-4 border-transparent text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
-              <td className="py-2 px-2 font-bold">TOTAL Gains</td>
-              <td className="py-2 px-2 text-right font-semibold">
-                {Number(defitAmount * defitPrice)?.toLocaleString("fr-FR", {
+              <td className="py-3 px-2 text-right font-semibold">
+                {Number(euroAmount)?.toLocaleString("fr-FR", {
                   style: "currency",
                   currency: "EUR",
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
-                }) ?? "..."}</td>
+                }) ?? "..."}
+              </td>
+            </tr>
+            <tr className="border-t-4 border-transparent text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
+              <td className="py-2 px-2 font-bold">TOTAL Gains</td>
+              <td className="py-2 px-2 text-right font-semibold">
+                {Number((defitAmount * defitPrice) + euroAmount)?.toLocaleString("fr-FR", {
+                  style: "currency",
+                  currency: "EUR",
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                }) ?? "..."}
+              </td>
             </tr>
           </tbody>
         </table>
