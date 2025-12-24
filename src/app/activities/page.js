@@ -28,9 +28,9 @@ export default function Home() {
               <th className="py-3 px-4">Athlete</th>
               <th className="py-3 px-4">Activité</th>
               <th className="py-3 px-4">Gain brut (Defit)</th>
-              <th className="py-3 px-4">Gain net Defit (€)</th>
-              <th className="py-3 px-4">Boost (€)</th>
-              <th className="py-3 px-4">Total (€)</th>
+              <th className="py-3 px-4">Gain net Defit ($)</th>
+              <th className="py-3 px-4">Boost ($)</th>
+              <th className="py-3 px-4">Total ($)</th>
             </tr>
           </thead>
           <tbody className="text-gray-200">

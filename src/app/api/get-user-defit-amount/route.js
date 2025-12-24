@@ -17,16 +17,18 @@ export async function GET(req) {
 
     const result = await sql`
       SELECT 
-        COALESCE(euros, 0) AS euros,
-        COALESCE(defits, 0) AS defits
+        COALESCE(dollars, 0) AS dollars,
+        COALESCE(defits, 0) AS defits,
+        COALESCE(user_liquidity, 0) AS user_liquidity
       FROM users
       WHERE id = ${id};
     `;
 
     return new Response(
       JSON.stringify({
-        euros: result[0]?.euros ?? 0,
+        dollars: result[0]?.dollars ?? 0,
         defits: result[0]?.defits ?? 0,
+        user_liquidity: result[0]?.user_liquidity ?? 0,
       }),
       {
         status: 200,
