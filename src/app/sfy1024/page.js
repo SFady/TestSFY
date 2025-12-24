@@ -55,8 +55,30 @@ export default function Sfy1024() {
           required
           className="px-3 py-2 rounded text-black"
         />
+        
+        <input
+          type="text"
+          name="weth_liquidity"
+          placeholder="weth_liquidity"
+          required
+          className="px-3 py-2 rounded text-black"
+        />
 
+        <input
+          type="text"
+          name="usdc_liquidity"
+          placeholder="usdc_liquidity"
+          required
+          className="px-3 py-2 rounded text-black"
+        />
 
+        <input
+          type="text"
+          name="usdc_fees"
+          placeholder="usdc_fees"
+          required
+          className="px-3 py-2 rounded text-black"
+        />
 
         <button
           type="submit"

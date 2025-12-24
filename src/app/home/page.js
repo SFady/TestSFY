@@ -99,7 +99,7 @@ export default function Home() {
             <tr className="border-b border-white/20">
               <td className="py-3 px-2">DEFIT</td>
               <td className="py-3 px-2 text-right font-semibold">
-                {Number(defitAmount * defitPrice)?.toLocaleString("fr-FR", {
+                {Number(defitAmount * defitPrice)?.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 }) + " $" ?? "..."}
@@ -108,7 +108,7 @@ export default function Home() {
             <tr className="border-b border-white/20">
               <td className="py-3 px-2">Améliorations</td>
               <td className="py-3 px-2 text-right font-semibold">
-                 {Number(user_liquidity)?.toLocaleString("fr-FR", {
+                 {Number(user_liquidity)?.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 }) + " $" ?? "..."}
@@ -117,7 +117,7 @@ export default function Home() {
             <tr className="border-b border-white/20">
               <td className="py-3 px-2">Disponible</td>
               <td className="py-3 px-2 text-right font-semibold">
-               {Number(dollarAmount)?.toLocaleString("fr-FR", {
+               {Number(dollarAmount)?.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 }) + " $" ?? "..."}
@@ -126,7 +126,7 @@ export default function Home() {
             <tr className="border-t-4 border-transparent text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
               <td className="py-2 px-2 font-bold">TOTAL Gains</td>
               <td className="py-2 px-2 text-right font-semibold">
-                 {Number((defitAmount * defitPrice) + dollarAmount)?.toLocaleString("fr-FR", {
+                 {Number((defitAmount * defitPrice) + dollarAmount)?.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 }) + " $" ?? "..."}
