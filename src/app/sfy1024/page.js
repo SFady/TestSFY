@@ -1,8 +1,71 @@
-export default function sfy1024() {
+export default function Sfy1024() {
   return (
-    <main className="flex flex-col items-start justify-start min-h-screen text-left text-white bg-[#5f3dc4] px-6">
-      <br/>
-      <p>test</p>
+    <main className="flex flex-col items-start min-h-screen text-white bg-[#5f3dc4] px-6 py-6">
+      <h1 className="text-2xl mb-4">Ajouter une donnée</h1>
+
+      <form
+        action="/api/insert-data"
+        method="POST"
+        className="flex flex-col gap-4 w-full max-w-sm"
+      >
+        <input
+          type="text"
+          name="user_id"
+          placeholder="user_id"
+          required
+          className="px-3 py-2 rounded text-black"
+        />
+
+        <input
+          type="text"
+          name="date_claimed"
+          placeholder="date_claimed"
+          required
+          className="px-3 py-2 rounded text-black"
+        />
+
+        <input
+          type="text"
+          name="defit_amount"
+          placeholder="defit_amount"
+          required
+          className="px-3 py-2 rounded text-black"
+        />
+
+        <input
+          type="text"
+          name="activity_type"
+          placeholder="activity_type"
+          required
+          className="px-3 py-2 rounded text-black"
+        />
+
+        <input
+          type="text"
+          name="participation_percentage"
+          placeholder="participation_percentage"
+          required
+          className="px-3 py-2 rounded text-black"
+        />
+
+        <input
+          type="text"
+          name="kilometers"
+          placeholder="kilometers"
+          required
+          className="px-3 py-2 rounded text-black"
+        />
+
+
+
+        <button
+          type="submit"
+          className="bg-white text-[#5f3dc4] font-semibold py-2 rounded hover:bg-gray-200"
+        >
+          Envoyer
+        </button>
+      </form>
     </main>
   );
 }
+
