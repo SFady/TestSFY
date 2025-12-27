@@ -86,7 +86,7 @@ export default function Home() {
         {/* </div> */}
         <div className="rounded-2xl inline-block relative -ml-10">
           <Image
-            src="/images/runner_init2.png"
+            src={selected === "1" ? "/images/runner_init3.png" : "/images/runner_init2.png"}
             alt="Athlete"
             width={200}
             height={400}

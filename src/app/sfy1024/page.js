@@ -50,18 +50,18 @@ export default function Sfy1024() {
           <option value="100" className="bg-[#8d6bf2] text-[#f3f0ff]">100%</option>
         </select>
 
-        <input
+          <input
           type="text"
-          name="out_of_pool_usdc"
-          placeholder="out_of_pool_usdc"
+          name="kilometers"
+          placeholder="kilometers"
           required
           className="px-3 py-2 rounded text-black"
         />
 
         <input
           type="text"
-          name="kilometers"
-          placeholder="kilometers"
+          name="out_of_pool_usdc"
+          placeholder="out_of_pool_usdc"
           required
           className="px-3 py-2 rounded text-black"
         />
