@@ -65,7 +65,26 @@ export default function Home() {
       <div className="flex justify-center items-start gap-2 mb-4">
 
         {/* IMAGE À GAUCHE avec position relative */}
-        <div className="rounded-2xl inline-block relative">
+        {/* <div className="rounded-2xl inline-block relative">
+          <Image
+            src="/images/runner_init2.png"
+            alt="Athlete"
+            width={200}
+            height={400}
+            loading="eager"
+          /> */}
+
+        {/* TRAIT partant du milieu horizontal de la tête */}
+        {/* <div
+            className="absolute bg-gray-600 h-px"
+            style={{
+              top: "20px",       // milieu de la tête
+              left: "50%",       // milieu horizontal de l'image
+              width: "80px"      // longueur du trait vers le texte
+            }}
+          /> */}
+        {/* </div> */}
+        <div className="rounded-2xl inline-block relative -ml-10">
           <Image
             src="/images/runner_init2.png"
             alt="Athlete"
@@ -73,21 +92,47 @@ export default function Home() {
             height={400}
             loading="eager"
           />
-
-          {/* TRAIT partant du milieu horizontal de la tête */}
-          <div
-            className="absolute bg-gray-600 h-px"
-            style={{
-              top: "20px",       // milieu de la tête
-              left: "50%",       // milieu horizontal de l'image
-              width: "80px"      // longueur du trait vers le texte
-            }}
-          />
         </div>
 
         {/* TEXTE À DROITE, encore plus proche du trait */}
-        <div className="ml-0 flex flex-col justify-start" style={{ marginTop: "8px" }}>
-          <h2 className="text-sm font-semibold leading-snug">Classe A / Niveau 0</h2>
+        <div className="-ml-12 flex flex-col justify-start" style={{ marginTop: "50px" }}>
+          <table className="border-collapse text-center">
+            <thead>
+              <tr>
+                <th className="px-2 py-1">Element</th>
+                <th className="px-2 py-1">Classe</th>
+                <th className="px-2 py-1">Niveau</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="px-2 py-1">T-Shirt</td>
+                <td className="px-2 py-1">{selected === "1" ? "A" : "_"}</td>
+                <td className="px-2 py-1">{selected === "1" ? "0" : "_"}</td>
+              </tr>
+              <tr>
+                <td className="px-2 py-1">Short</td>
+                <td className="px-2 py-1">{selected === "1" ? "A" : "_"}</td>
+                <td className="px-2 py-1">{selected === "1" ? "0" : "_"}</td>
+              </tr>
+              <tr>
+                <td className="px-2 py-1">Chaussettes</td>
+                <td className="px-2 py-1">{selected === "1" ? "A" : "_"}</td>
+                <td className="px-2 py-1">{selected === "1" ? "0" : "_"}</td>
+              </tr>
+              <tr>
+                <td className="px-2 py-1">Chaussures</td>
+                <td className="px-2 py-1">{selected === "1" ? "A" : "_"}</td>
+                <td className="px-2 py-1">{selected === "1" ? "0" : "_"}</td>
+              </tr>
+              <tr>
+                <td className="px-2 py-1">Montre</td>
+                <td className="px-2 py-1">{selected === "1" ? "A" : "_"}</td>
+                <td className="px-2 py-1">{selected === "1" ? "0" : "_"}</td>
+              </tr>
+            </tbody>
+          </table>
+          {/* <h3 className="text-sm leading-snug">Chaussures : Classe A / Niveau 0</h3> */}
         </div>
 
       </div>
@@ -108,7 +153,7 @@ export default function Home() {
             <tr className="border-b border-white/20">
               <td className="py-3 px-2">Améliorations</td>
               <td className="py-3 px-2 text-right font-semibold">
-                 {Number(user_liquidity)?.toLocaleString("en-US", {
+                {Number(user_liquidity)?.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 }) + " $" ?? "..."}
@@ -117,7 +162,7 @@ export default function Home() {
             <tr className="border-b border-white/20">
               <td className="py-3 px-2">Disponible</td>
               <td className="py-3 px-2 text-right font-semibold">
-               {Number(dollarAmount)?.toLocaleString("en-US", {
+                {Number(dollarAmount)?.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 }) + " $" ?? "..."}
@@ -126,7 +171,7 @@ export default function Home() {
             <tr className="border-t-4 border-transparent text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
               <td className="py-2 px-2 font-bold">TOTAL Gains</td>
               <td className="py-2 px-2 text-right font-semibold">
-                 {Number((defitAmount * defitPrice) + dollarAmount)?.toLocaleString("en-US", {
+                {Number((defitAmount * defitPrice) + dollarAmount)?.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 }) + " $" ?? "..."}

@@ -29,6 +29,33 @@ export async function POST(req) {
 
     return Response.json({ message: '✅ Insert OK', result: result[0] });
 
+    // get fees f
+    // Combien il en reste (-distributed)
+    // pourcentage liquidité pour joueur : p
+    // P2 : pourcentage par rapport au max defit
+    // P2 
+
+
+    // totalFees = formData.get("out_of_pool_usdc") + formData.get("usdc_fees") ;
+    // liquidity_start=top 1 liquidity_start from liquidity order by liquidity_start desc
+    // globalInitialLiquidity=top 1 initial_liquidity from liquidity order by liquidity_start desc
+    // upgradePercentage=top 1 upgradePercentage from liquidity order by liquidity_start desc
+    // distributedFees = sum(boost) where date_claimed>=liquidity_start 
+    // remainingFees = totalFees - distributedFees
+    // liquidityPercentage = users.initial_liquidity/globalInitialLiquidity
+    // defitPercentage = formData.get("defit_amount") / users.max_defits
+    // upgradeDollars=(liquidityPercentage*defitPercentage*remainingFees)*(upgradePercentage/100)
+    // boost=(liquidityPercentage*defitPercentage*remainingFees)-upgradeDollars
+
+    // ajouter boost dans user_activities
+    // ajouter aux dollars
+    // ajouter à upgradeDollars
+
+
+
+
+
+
   } catch (err) {
     console.error('❌ DB error:', err);
     return new Response(JSON.stringify({ result: 0, error: err.message }), {
