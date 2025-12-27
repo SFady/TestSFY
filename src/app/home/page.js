@@ -95,8 +95,8 @@ export default function Home() {
         </div>
 
         {/* TEXTE À DROITE, encore plus proche du trait */}
-        <div className="-ml-12 flex flex-col justify-start" style={{ marginTop: "50px" }}>
-          <table className="border-collapse text-center">
+        <div className="-ml-8 flex flex-col justify-start" style={{ marginTop: "50px" }}>
+          <table className="border-collapse text-center text-xs">
             <thead>
               <tr>
                 <th className="px-2 py-1">Element</th>

@@ -19,7 +19,7 @@ export async function GET(req) {
       SELECT 
         COALESCE(dollars, 0) AS dollars,
         COALESCE(defits, 0) AS defits,
-        COALESCE(initial_liquidity, 0) AS user_liquidity
+        COALESCE(liquidity, 0) AS user_liquidity
       FROM users
       WHERE id = ${id};
     `;
