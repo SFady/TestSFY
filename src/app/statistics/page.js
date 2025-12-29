@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center pt-24 px-6 md:px-16 w-full h-full">
-      Classements
+      Statistiques
     </main>
   );
 }

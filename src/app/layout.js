@@ -75,7 +75,8 @@ export default function RootLayout({ children }) {
               <nav className="hidden md:flex gap-8 text-sm font-medium justify-end ml-auto">
                 <Link href="/home" className="hover:text-white transition-colors">Dashboard</Link>
                 <Link href="/activities" className="hover:text-white transition-colors">Activités</Link>
-                <Link href="/rankings" className="hover:text-white transition-colors">Classements</Link>
+                <Link href="/statistics" className="hover:text-white transition-colors">Statistiques</Link>
+                <Link href="/shop" className="hover:text-white transition-colors">Boutique</Link>
               </nav>
             </div>
           </header>
@@ -98,9 +99,13 @@ export default function RootLayout({ children }) {
                 <span className="text-lg">📊</span>
                 <span>Activités</span>
               </Link>
-              <Link href="/rankings" className="flex flex-col items-center gap-1 hover:text-white transition-colors">
+              <Link href="/statistics" className="flex flex-col items-center gap-1 hover:text-white transition-colors">
                 <span className="text-lg">👤</span>
-                <span>Classements</span>
+                <span>Statistiques</span>
+              </Link>
+              <Link href="/shop" className="flex flex-col items-center gap-1 hover:text-white transition-colors">
+                <span className="text-lg">👤</span>
+                <span>Boutique</span>
               </Link>
             </nav>
           </footer>
