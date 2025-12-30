@@ -156,7 +156,7 @@ export default function Home() {
                 {Number(user_liquidity)?.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
-                }) + " $" ?? "..."}
+                }).replace(",", " ") + " $" ?? "..."}
               </td>
             </tr>
             <tr className="border-b border-white/20">
@@ -165,7 +165,7 @@ export default function Home() {
                 {Number(dollarAmount)?.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
-                }) + " $" ?? "..."}
+                }).replace(",", " ") + " $" ?? "..."}
               </td>
             </tr>
             <tr className="border-t-4 border-transparent text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
@@ -174,7 +174,7 @@ export default function Home() {
                 {Number((defitAmount * defitPrice) + dollarAmount)?.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
-                }) + " $" ?? "..."}
+                }).replace(",", " ") + " $" ?? "..."}
               </td>
             </tr>
           </tbody>

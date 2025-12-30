@@ -18,6 +18,7 @@ export async function GET(req) {
         INNER JOIN users uss ON uas.user_id=uss.id
         WHERE EXTRACT(YEAR FROM uas.date_claimed) = EXTRACT(YEAR FROM CURRENT_DATE)
         GROUP BY uas.user_id, uss.name
+        ORDER BY uas.user_id
       `;
     } else if (id === 2) {
       result = await sql`
@@ -29,6 +30,7 @@ export async function GET(req) {
         INNER JOIN users uss ON uas.user_id=uss.id
         WHERE EXTRACT(MONTH FROM uas.date_claimed) = EXTRACT(MONTH FROM CURRENT_DATE) AND EXTRACT(YEAR FROM uas.date_claimed) = EXTRACT(YEAR FROM CURRENT_DATE)
         GROUP BY uas.user_id, uss.name
+        ORDER BY uas.user_id
       `;
     } else if (id === 3) {
       result = await sql`
@@ -40,6 +42,7 @@ export async function GET(req) {
         INNER JOIN users uss ON uas.user_id=uss.id
         WHERE EXTRACT(WEEK FROM uas.date_claimed) = EXTRACT(WEEK FROM CURRENT_DATE) AND EXTRACT(MONTH FROM uas.date_claimed) = EXTRACT(MONTH FROM CURRENT_DATE) AND EXTRACT(YEAR FROM uas.date_claimed) = EXTRACT(YEAR FROM CURRENT_DATE)
         GROUP BY uas.user_id, uss.name
+        ORDER BY uas.user_id
       `;
     }
     else
@@ -52,6 +55,7 @@ export async function GET(req) {
         FROM user_activities uas
         INNER JOIN users uss ON uas.user_id=uss.id
         GROUP BY uas.user_id, uss.name
+        ORDER BY uas.user_id
       `;
     }
 
