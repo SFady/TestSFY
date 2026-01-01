@@ -2,60 +2,67 @@ import sql from '@/lib/db';
 
 export async function GET(req) {
   try {
-    
+
     const url = new URL(req.url);
     const id = Number(url.searchParams.get('id')) || 0;
-    
+
     let result;
 
     if (id === 1) {
       result = await sql`
-        SELECT uss.name AS name,
-              SUM(COALESCE(kilometers,0)) AS kilometers,
-              SUM(COALESCE(defit_amount,0)) AS defit_amount,
-              SUM(COALESCE(boost,0)) AS boost
-        FROM user_activities uas
-        INNER JOIN users uss ON uas.user_id=uss.id
-        WHERE EXTRACT(YEAR FROM uas.date_claimed) = EXTRACT(YEAR FROM CURRENT_DATE)
-        GROUP BY uas.user_id, uss.name
-        ORDER BY uas.user_id
+        SELECT
+            uss.name AS name,
+            COALESCE(SUM(uas.kilometers), 0)    AS kilometers,
+            COALESCE(SUM(uas.defit_amount), 0)  AS defit_amount,
+            COALESCE(SUM(uas.boost), 0)         AS boost
+        FROM users uss
+        LEFT JOIN user_activities uas
+          ON uas.user_id = uss.id
+        AND EXTRACT(YEAR FROM uas.date_claimed) = EXTRACT(YEAR FROM CURRENT_DATE)
+        GROUP BY uss.id, uss.name
+        ORDER BY uss.id;
       `;
     } else if (id === 2) {
       result = await sql`
-        SELECT uss.name AS name,
-              SUM(COALESCE(kilometers,0)) AS kilometers,
-              SUM(COALESCE(defit_amount,0)) AS defit_amount,
-              SUM(COALESCE(boost,0)) AS boost
-        FROM user_activities uas
-        INNER JOIN users uss ON uas.user_id=uss.id
-        WHERE EXTRACT(MONTH FROM uas.date_claimed) = EXTRACT(MONTH FROM CURRENT_DATE) AND EXTRACT(YEAR FROM uas.date_claimed) = EXTRACT(YEAR FROM CURRENT_DATE)
-        GROUP BY uas.user_id, uss.name
-        ORDER BY uas.user_id
+        SELECT
+            uss.name AS name,
+            COALESCE(SUM(uas.kilometers), 0)    AS kilometers,
+            COALESCE(SUM(uas.defit_amount), 0)  AS defit_amount,
+            COALESCE(SUM(uas.boost), 0)         AS boost
+        FROM users uss
+        LEFT JOIN user_activities uas
+          ON uas.user_id = uss.id
+        AND EXTRACT(MONTH FROM uas.date_claimed) = EXTRACT(MONTH FROM CURRENT_DATE) AND EXTRACT(YEAR FROM uas.date_claimed) = EXTRACT(YEAR FROM CURRENT_DATE)
+        GROUP BY uss.id, uss.name
+        ORDER BY uss.id;  
       `;
     } else if (id === 3) {
       result = await sql`
-        SELECT uss.name AS name,
-              SUM(COALESCE(kilometers,0)) AS kilometers,
-              SUM(COALESCE(defit_amount,0)) AS defit_amount,
-              SUM(COALESCE(boost,0)) AS boost
-        FROM user_activities uas
-        INNER JOIN users uss ON uas.user_id=uss.id
-        WHERE EXTRACT(WEEK FROM uas.date_claimed) = EXTRACT(WEEK FROM CURRENT_DATE) AND EXTRACT(MONTH FROM uas.date_claimed) = EXTRACT(MONTH FROM CURRENT_DATE) AND EXTRACT(YEAR FROM uas.date_claimed) = EXTRACT(YEAR FROM CURRENT_DATE)
-        GROUP BY uas.user_id, uss.name
-        ORDER BY uas.user_id
+        SELECT
+            uss.name AS name,
+            COALESCE(SUM(uas.kilometers), 0)    AS kilometers,
+            COALESCE(SUM(uas.defit_amount), 0)  AS defit_amount,
+            COALESCE(SUM(uas.boost), 0)         AS boost
+        FROM users uss
+        LEFT JOIN user_activities uas
+          ON uas.user_id = uss.id
+        AND EXTRACT(WEEK FROM uas.date_claimed) = EXTRACT(WEEK FROM CURRENT_DATE) AND EXTRACT(MONTH FROM uas.date_claimed) = EXTRACT(MONTH FROM CURRENT_DATE) AND EXTRACT(YEAR FROM uas.date_claimed) = EXTRACT(YEAR FROM CURRENT_DATE)
+        GROUP BY uss.id, uss.name
+        ORDER BY uss.id;    
       `;
     }
-    else
-    {
+    else {
       result = await sql`
-        SELECT uss.name AS name,
-              SUM(COALESCE(kilometers,0)) AS kilometers,
-              SUM(COALESCE(defit_amount,0)) AS defit_amount,
-              SUM(COALESCE(boost,0)) AS boost
-        FROM user_activities uas
-        INNER JOIN users uss ON uas.user_id=uss.id
-        GROUP BY uas.user_id, uss.name
-        ORDER BY uas.user_id
+        SELECT
+            uss.name AS name,
+            COALESCE(SUM(uas.kilometers), 0)    AS kilometers,
+            COALESCE(SUM(uas.defit_amount), 0)  AS defit_amount,
+            COALESCE(SUM(uas.boost), 0)         AS boost
+        FROM users uss
+        LEFT JOIN user_activities uas
+          ON uas.user_id = uss.id
+        GROUP BY uss.id, uss.name
+        ORDER BY uss.id;
       `;
     }
 
