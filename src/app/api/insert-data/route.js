@@ -8,8 +8,8 @@ export async function POST(req) {
     const user_id = formData.get("user_id");
 
     const rawDate = formData.get("date_claimed"); // "25/12/2025"
-    const [day, month, year] = rawDate.split("/");
-    const date_claimed = `${year}-${month}-${day}`;
+    //const [day, month, year] = rawDate.split("/");
+    const date_claimed = rawDate
 
     const defit_amount = formData.get("defit_amount");
     const activity_type = formData.get("activity_type");
