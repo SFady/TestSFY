@@ -42,6 +42,46 @@ export default function Home() {
     fetchDefitAmount(id);
   };
 
+  // Liste des éléments du tableau
+  const rows = ["T-Shirt", "Short", "Chaussettes", "Chaussures", "Montre", "Personnage"];
+
+  // Valeurs pour chaque ID (1 à 4)
+  const dataBySelected = {
+    "1": {
+      "T-Shirt": ["A", "0"],
+      "Short": ["A", "0"],
+      "Chaussettes": ["A", "0"],
+      "Chaussures": ["A", "0"],
+      "Montre": ["A", "0"],
+      "Personnage": ["A", "0"],
+    },
+    "2": {
+      "T-Shirt": [,],
+      "Short": [,],
+      "Chaussettes": [,],
+      "Chaussures": [,],
+      "Montre": [,],
+      "Personnage": [,],
+    },
+    "3": {
+      "T-Shirt": ["A", "0"],
+      "Short": [,],
+      "Chaussettes": ["A", "0"],
+      "Chaussures": [,],
+      "Montre": [,],
+      "Personnage": [,],
+    },
+    "4": {
+      "T-Shirt": [,],
+      "Short": [,],
+      "Chaussettes": [,],
+      "Chaussures": [,],
+      "Montre": [,],
+      "Personnage": [,],
+    },
+  };
+
+
   return (
     <main className="relative w-full max-w-screen-xl mx-auto px-6 md:px-16 pt-6 pb-6 md:pt-0 md:pb-0 min-h-[calc(100vh-96px)] overflow-y-auto md:overflow-visible">
 
@@ -104,7 +144,7 @@ export default function Home() {
                 <th className="px-2 py-1">Niveau</th>
               </tr>
             </thead>
-            <tbody>
+            {/* <tbody>
               <tr>
                 <td className="px-2 py-1">T-Shirt</td>
                 <td className="px-2 py-1">{selected === "1" ? "A" : "_"}</td>
@@ -130,6 +170,23 @@ export default function Home() {
                 <td className="px-2 py-1">{selected === "1" ? "A" : "_"}</td>
                 <td className="px-2 py-1">{selected === "1" ? "0" : "_"}</td>
               </tr>
+              <tr>
+                <td className="px-2 py-1">Personnage</td>
+                <td className="px-2 py-1">{selected === "1" ? "A" : "_"}</td>
+                <td className="px-2 py-1">{selected === "1" ? "0" : "_"}</td>
+              </tr>
+            </tbody> */}
+            <tbody>
+              {rows.map((item) => {
+                const [col1 = "_", col2 = "_"] = dataBySelected[selected]?.[item] ?? ["_", "_"];
+                return (
+                  <tr key={item}>
+                    <td className="px-2 py-1">{item}</td>
+                    <td className="px-2 py-1">{col1}</td>
+                    <td className="px-2 py-1">{col2}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
           {/* <h3 className="text-sm leading-snug">Chaussures : Classe A / Niveau 0</h3> */}
@@ -169,9 +226,9 @@ export default function Home() {
               </td>
             </tr>
             <tr className="border-t-4 border-transparent text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
-              <td className="py-2 px-2 font-bold">TOTAL Gains</td>
+              <td className="py-2 px-2 font-bold">TOTAL</td>
               <td className="py-2 px-2 text-right font-semibold">
-                {Number((defitAmount * defitPrice) + dollarAmount)?.toLocaleString("en-US", {
+                {Number((defitAmount * defitPrice) + dollarAmount + user_liquidity)?.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                 }).replace(",", " ") + " $" ?? "..."}

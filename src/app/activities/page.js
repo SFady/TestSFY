@@ -72,8 +72,8 @@ export default function Home() {
                   <td className="text-white py-3 px-4">{row.activity_name}</td>
                   <td className="text-white py-3 px-4">{row.defit_amount}</td>
                   <td className="text-white py-3 px-4">{(row.defit_amount * row.participation_percentage * defitPrice / 100).toFixed(2)}</td>
-                  <td className="text-white py-3 px-4">{(0).toFixed(2)}</td>
-                  <td className="text-white py-3 px-4">{(row.defit_amount * row.participation_percentage * defitPrice / 100).toFixed(2)}</td>
+                  <td className="text-white py-3 px-4">{Number(row.boost).toFixed(2)}</td>
+                  <td className="text-white py-3 px-4">{(Number(row.boost)+(row.defit_amount * row.participation_percentage * defitPrice / 100)).toFixed(2)}</td>
                 </tr>
               );
             })}

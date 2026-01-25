@@ -82,6 +82,7 @@ export default function Home() {
           <thead>
             <tr className="text-white bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
               <th className="py-2 px-3">Athlete</th>
+              <th className="py-2 px-3 text-right">Defits</th>
               <th className="py-2 px-3 text-right">Defits ($)</th>
               <th className="py-2 px-3 text-right">Boost ($)</th>
               <th className="py-2 px-3 text-right">Total ($)</th>
@@ -97,6 +98,12 @@ export default function Home() {
                 return (
                   <tr key={idx}>
                     <td className="py-1 px-3">{row.name}</td>
+                    <td className="py-1 px-3 text-right">
+                      {(row.defit_amount ?? 0).toLocaleString("en-US", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      }).replace(",", " ")}
+                    </td>
                     <td className="py-1 px-3 text-right">
                       {defit.toLocaleString("en-US", {
                         minimumFractionDigits: 2,

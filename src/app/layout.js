@@ -3,6 +3,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import ClientGate from "./ClientGate";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,11 +16,11 @@ const geistMono = Geist_Mono({
 });
 
 function getVersionString() {
-  const year = "2025";
-  const month = "11";
-  const day = "24";
-  const hours = "11";
-  const minutes = "23";
+  const year = "2026";
+  const month = "01";
+  const day = "03";
+  const hours = "21";
+  const minutes = "00";
   return `(V${year}${month}${day}_${hours}${minutes})`;
 }
 
@@ -84,7 +85,9 @@ export default function RootLayout({ children }) {
           {/* ZONE CENTRALE - scroll global */}
           <main className="relative flex flex-col pt-16 md:pt-24 pb-20 min-h-screen overflow-x-auto overflow-y-auto">
             <div className="relative z-20 flex flex-col w-max min-w-full md:max-w-screen-xl md:mx-auto px-0 md:px-12">
-              {children}
+              <ClientGate>
+                {children}
+              </ClientGate>
             </div>
           </main>
 
